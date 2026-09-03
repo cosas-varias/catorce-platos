@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Menú semanal español para dos: siete comidas y siete cenas, con lista de la compra y las tareas del domingo.">
+<meta property="og:title" content="Catorce Platos">
+<meta property="og:description" content="Menú semanal español para dos: siete comidas y siete cenas, con lista de la compra y las tareas del domingo.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%A5%98</text></svg>">
+<style>
+  :root { color-scheme: light dark; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<title>Catorce Platos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Karla:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+  :root {
+    --cal: #FCFBF7;
+    --papel: #FFFFFF;
+    --tinta: #141C26;
+    --texto: #2A333F;
+    --suave: #5D6874;
+    --linea: #D9D8D0;
+    --linea-fina: #E9E7E0;
+    --anil: #1D4E89;
+    --anil-tinte: #EDF1F7;
+    --oliva: #5F6E38;
+    --oliva-tinte: #F0F2E7;
+    --pimenton: #A63D22;
+
+    --display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    --cuerpo: "Karla", "Helvetica Neue", Arial, sans-serif;
+    --dato: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --cal: #111822;
+      --papel: #161E29;
+      --tinta: #F1F4F1;
+      --texto: #D6DBE1;
+      --suave: #97A2AE;
+      --linea: #2B3644;
+      --linea-fina: #222C38;
+      --anil: #83B3E2;
+      --anil-tinte: #182534;
+      --oliva: #ABBE76;
+      --oliva-tinte: #1B2420;
+      --pimenton: #E28466;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --cal: #111822;
+    --papel: #161E29;
+    --tinta: #F1F4F1;
+    --texto: #D6DBE1;
+    --suave: #97A2AE;
+    --linea: #2B3644;
+    --linea-fina: #222C38;
+    --anil: #83B3E2;
+    --anil-tinte: #182534;
+    --oliva: #ABBE76;
+    --oliva-tinte: #1B2420;
+    --pimenton: #E28466;
+  }
+
+  body {
+    background: var(--cal);
+    color: var(--texto);
+    font-family: var(--cuerpo);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .hoja {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 56px 24px 88px;
+  }
+
+  a { color: var(--anil); }
+  :focus-visible { outline: 2px solid var(--anil); outline-offset: 3px; }
+
+  /* ---------- cabecera ---------- */
+
+  .cabecera {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .eyebrow {
+    font-family: var(--dato);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--anil);
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(46px, 8vw, 78px);
+    line-height: 0.95;
+    letter-spacing: -0.015em;
+    color: var(--tinta);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  h1 em { font-style: italic; color: var(--anil); }
+
+  .entradilla {
+    max-width: 60ch;
+    font-size: 17px;
+    color: var(--texto);
+    margin: 0;
+  }
+
+  .supuestos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .supuestos li {
+    font-family: var(--dato);
+    font-size: 11.5px;
+    letter-spacing: 0.02em;
+    color: var(--suave);
+    border: 1px solid var(--linea);
+    border-radius: 2px;
+    padding: 4px 9px;
+    background: var(--papel);
+  }
+
+  /* ---------- rótulos de sección ---------- */
+
+  .rotulo {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 64px 0 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--tinta);
+  }
+
+  .rotulo h2 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(28px, 4vw, 38px);
+    line-height: 1.05;
+    color: var(--tinta);
+    margin: 0;
+  }
+
+  .rotulo p {
+    font-family: var(--dato);
+    font-size: 11.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--suave);
+    margin: 0;
+    text-align: right;
+  }
+
+  /* ---------- parrilla de días ---------- */
+
+  .semana { display: flex; flex-direction: column; }
+
+  .dia {
+    display: grid;
+    grid-template-columns: 88px 1fr 1fr;
+    border-bottom: 1px solid var(--linea-fina);
+  }
+
+  .dia:last-child { border-bottom: 1px solid var(--linea); }
+
+  .fecha {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 22px 18px 22px 0;
+  }
+
+  .azulejo {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--anil);
+    box-shadow: inset 0 0 0 3px var(--cal), inset 0 0 0 4px var(--anil-tinte);
+    background: var(--anil-tinte);
+    font-family: var(--display);
+    font-size: 24px;
+    line-height: 1;
+    color: var(--anil);
+  }
+
+  .fecha span {
+    font-family: var(--dato);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--suave);
+  }
+
+  .toma {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 22px 20px;
+    border-left: 1px solid var(--linea-fina);
+  }
+
+  .toma--cena { background: var(--oliva-tinte); }
+
+  .toma-cab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--dato);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .toma--comida .toma-cab { color: var(--anil); }
+  .toma--cena .toma-cab { color: var(--oliva); }
+
+  .toma-cab .marca {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+    flex: 0 0 auto;
+  }
+
+  .toma-cab .reloj {
+    margin-left: auto;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+    color: var(--suave);
+  }
+
+  .toma h3 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.12;
+    color: var(--tinta);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .toma p {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--texto);
+    margin: 0;
+    max-width: 46ch;
+  }
+
+  .toma .con {
+    font-size: 13.5px;
+    color: var(--suave);
+  }
+
+  .toma .con b {
+    font-weight: 500;
+    color: var(--texto);
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    list-style: none;
+    margin: 3px 0 0;
+    padding: 0;
+  }
+
+  .chips li {
+    font-family: var(--dato);
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--suave);
+    border: 1px solid var(--linea);
+    border-radius: 999px;
+    padding: 2px 8px;
+  }
+
+  .chips li.destaca {
+    color: var(--pimenton);
+    border-color: var(--pimenton);
+  }
+
+  /* ---------- domingo de preparación ---------- */
+
+  .tareas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1px;
+    margin-top: 24px;
+    background: var(--linea-fina);
+    border: 1px solid var(--linea-fina);
+  }
+
+  .tarea {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 20px 18px;
+    background: var(--papel);
+  }
+
+  .tarea .reloj {
+    font-family: var(--dato);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--pimenton);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .tarea h3 {
+    font-family: var(--cuerpo);
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.25;
+    color: var(--tinta);
+    margin: 0;
+  }
+
+  .tarea p {
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--texto);
+    margin: 0;
+  }
+
+  /* ---------- la compra ---------- */
+
+  .compra {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(228px, 1fr));
+    gap: 34px 40px;
+    margin-top: 30px;
+  }
+
+  .puesto h3 {
+    font-family: var(--dato);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--anil);
+    margin: 0 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .puesto ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .puesto li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--texto);
+    border-bottom: 1px dotted var(--linea-fina);
+    padding-bottom: 6px;
+  }
+
+  .puesto .cant {
+    font-family: var(--dato);
+    font-size: 12px;
+    color: var(--suave);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  /* ---------- notas ---------- */
+
+  .notas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px 44px;
+    margin-top: 30px;
+  }
+
+  .nota h3 {
+    font-family: var(--cuerpo);
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--tinta);
+    margin: 0 0 6px;
+  }
+
+  .nota p {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--texto);
+    margin: 0;
+    max-width: 58ch;
+  }
+
+  .balance {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1px;
+    margin-top: 26px;
+    background: var(--linea-fina);
+    border: 1px solid var(--linea-fina);
+  }
+
+  .balance div {
+    flex: 1 1 132px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 16px 18px;
+    background: var(--papel);
+  }
+
+  .balance dt, .balance .clave {
+    font-family: var(--dato);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--suave);
+  }
+
+  .balance .valor {
+    font-family: var(--display);
+    font-size: 30px;
+    line-height: 1;
+    color: var(--anil);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .pie {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--linea);
+    font-size: 13.5px;
+    color: var(--suave);
+    max-width: 62ch;
+  }
+
+  @media (max-width: 780px) {
+    .hoja { padding: 40px 18px 64px; }
+
+    .dia {
+      grid-template-columns: 1fr;
+      padding-bottom: 8px;
+    }
+
+    .fecha {
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 0 12px;
+    }
+
+    .azulejo { width: 36px; height: 36px; font-size: 20px; }
+
+    .toma {
+      border-left: 0;
+      border-top: 1px solid var(--linea-fina);
+      padding: 18px 0;
+    }
+
+    .toma--cena {
+      background: none;
+      padding: 18px 14px;
+      margin-bottom: 4px;
+      border-left: 2px solid var(--oliva);
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="hoja">
+
+  <header class="cabecera">
+    <p class="eyebrow">Menú semanal · Cocina española de diario</p>
+    <h1>Catorce platos<br><em>y ni un día repetido</em></h1>
+    <p class="entradilla">Siete comidas y siete cenas para dos, con lo que se encuentra en cualquier mercado de septiembre. Nada pasa de treinta y cinco minutos y casi todo se apoya en el mismo sofrito.</p>
+    <ul class="supuestos">
+      <li>2 personas · 25-30 años</li>
+      <li>Sin alergias ni intolerancias</li>
+      <li>Omnívoro</li>
+      <li>20-35 min por plato</li>
+      <li>Temporada: septiembre</li>
+    </ul>
+  </header>
+
+  <div class="rotulo">
+    <h2>La semana</h2>
+    <p>Comida · Cena</p>
+  </div>
+
+  <section class="semana">
+
+    <article class="dia">
+      <div class="fecha">
+        <div class="azulejo" aria-hidden="true">L</div>
+        <span>Lunes</span>
+      </div>
+      <div class="toma toma--comida">
+        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">30 min</span></div>
+        <h3>Lentejas estofadas exprés</h3>
+        <p>Sofríe cebolla, zanahoria y pimiento verde. Añade las lentejas pardinas, laurel, una cucharadita de pimentón de la Vera y agua a dos dedos por encima: 25 minutos a fuego medio, sin remover mucho.</p>
+        <p class="con">Con <b>naranja</b> de postre.</p>
+        <ul class="chips"><li class="destaca">Legumbre</li><li>Verdura</li></ul>
+      </div>
+      <div class="toma toma--cena">
+        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">30 min</span></div>
+        <h3>Tortilla de patata con cebolla</h3>
+        <p>400 g de patata en láminas finas y una cebolla, pochadas a fuego suave en aceite generoso. Escurre, mezcla con cuatro huevos batidos y cuaja dos minutos por cara: que quede jugosa por dentro.</p>
+        <p class="con">Con <b>ensalada de tomate y cebolleta</b>.</p>
+        <ul class="chips"><li class="destaca">Huevo</li><li>Patata</li><li>Verdura</li></ul>
+      </div>
+    </article>
+
+    <article class="dia">
+      <div class="fecha">
+        <div class="azulejo" aria-hidden="true">M</div>
+        <span>Martes</span>
+      </div>
+      <div class="toma toma--comida">
+        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">30 min</span></div>
+        <h3>Merluza al horno con patata panadera</h3>
+        <p>Patata en rodajas finas y cebolla al horno, 15 minutos a 200°. Coloca encima los lomos de merluza con ajo laminado, perejil y un chorro de vino blanco: 10 minutos más y fuera.</p>
+        <p class="con">Con <b>pimiento verde asado</b> en la misma bandeja.</p>
+        <ul class="chips"><li class="destaca">Pescado blanco</li><li>Patata</li><li>Verdura</li></ul>
+      </div>
+      <div class="toma toma--cena">
+        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">20 min</span></div>
+        <h3>Crema de calabacín y tostas de sardinilla</h3>
+        <p>Dos calabacines, un puerro y media patata a hervir 15 minutos; bate con un hilo de aceite crudo. Aparte, pan tostado con sardinillas en aceite y tiras de pimiento asado.</p>
+        <p class="con">Con <b>yogur natural</b> de postre.</p>
+        <ul class="chips"><li class="destaca">Pescado azul</li><li>Verdura</li><li>Pan</li></ul>
+      </div>
+    </article>
+
+    <article class="dia">
+      <div class="fecha">
+        <div class="azulejo" aria-hidden="true">X</div>
+        <span>Miércoles</span>
+      </div>
+      <div class="toma toma--comida">
+        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">20 min</span></div>
+        <h3>Garbanzos con espinacas y huevo</h3>
+        <p>Dora tres ajos laminados, aparta del fuego y añade el pimentón para que no se queme. Vuelve al fuego con los garbanzos de bote escurridos y las espinacas; corona con un huevo escalfado por cabeza.</p>
+        <p class="con">Con <b>uvas</b> de postre.</p>
+        <ul class="chips"><li class="destaca">Legumbre</li><li>Huevo</li><li>Verdura</li></ul>
+      </div>
+      <div class="toma toma--cena">
+        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">25 min</span></div>
+        <h3>Pollo al ajillo con champiñones</h3>
+        <p>Contramuslo en dados, bien dorado a fuego fuerte con ocho dientes de ajo enteros. Añade los champiñones en cuartos, un chorro de vino blanco y perejil picado al apagar.</p>
+        <p class="con">Con <b>pan de pueblo</b> para el jugo.</p>
+        <ul class="chips"><li class="destaca">Ave</li><li>Verdura</li><li>Pan</li></ul>
+      </div>
+    </article>
+
+    <article class="dia">
+      <div class="fecha">
+        <div class="azulejo" aria-hidden="true">J</div>
+        <span>Jueves</span>
+      </div>
+      <div class="toma toma--comida">
+        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">25 min</span></div>
+        <h3>Alubias blancas con verduras y ventresca</h3>
+        <p>Sofrito de cebolla, pimiento verde y tomate rallado. Incorpora las alubias de bote, pimentón y un cazo de caldo; mueve la cazuela en vez de remover para que ligue. Ventresca de atún por encima al servir.</p>
+        <p class="con">Con <b>higos</b> de postre.</p>
+        <ul class="chips"><li class="destaca">Legumbre</li><li>Pescado azul</li><li>Verdura</li></ul>
+      </div>
+      <div class="toma toma--cena">
+        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">30 min</span></div>
+        <h3>Pisto manchego con huevos rotos</h3>
+        <p>Calabacín, berenjena, pimiento y tomate en dados pequeños, tapados 20 minutos a fuego medio hasta que suelten el agua y la recuperen. Rompe dos huevos encima, tapa cuatro minutos y sirve en la sartén.</p>
+        <p class="con">Con <b>pan</b> y una pizca de comino.</p>
+        <ul class="chips"><li class="destaca">Huevo</li><li>Verdura</li><li>Pan</li></ul>
+      </div>
+    </article>
+
+    <article class="dia">
+      <div class="fecha">
+        <div class="azulejo" aria-hidden="true">V</div>
+        <span>Viernes</span>
+      </div>
+      <div class="toma toma--comida">
+        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">25 min</span></div>
+        <h3>Fideos a la marinera</h3>
+        <p>Tuesta el fideo del número 2 en el sofrito hasta que huela a pan. Moja con caldo de pescado caliente, añade anillas de calamar y gambas, 12 minutos a fuego vivo y 3 de reposo fuera del fuego.</p>
+        <p class="con">Con <b>ensalada verde</b> al lado.</p>
+        <ul class="chips"><li class="destaca">Marisco</li><li>Pasta</li><li>Verdura</li></ul>
+      </div>
+      <div class="toma toma--cena">
+        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">10 min</span></div>
+        <h3>Ensaladilla y boquerones en vinagre</h3>
+        <p>Con la patata, la zanahoria y los huevos ya cocidos del domingo: trocea, añade atún, guisantes y dos cucharadas de mayonesa aligerada con yogur. Boquerones y aceitunas en un plato aparte.</p>
+        <p class="con">Con <b>melón</b> de postre.</p>
+        <ul class="chips"><li class="destaca">Pescado azul</li><li>Huevo</li><li>Patata</li></ul>
+      </div>
+    </article>
+
+    <article class="dia">
+      <div class="fecha">
+        <div class="azulejo" aria-hidden="true">S</div>
+        <span>Sábado</span>
+      </div>
+      <div class="toma toma--comida">
+        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">35 min</span></div>
+        <h3>Paella de pollo y verduras</h3>
+        <p>Dora el pollo, haz el sofrito en la misma paella y nacara el arroz redondo un minuto. Caldo caliente al doble de volumen, azafrán, y 18 minutos sin tocar el arroz: 10 a fuego fuerte, 8 flojo. Cinco de reposo tapado.</p>
+        <p class="con">Con <b>limón</b> en cuartos, si os gusta.</p>
+        <ul class="chips"><li class="destaca">Ave</li><li>Arroz</li><li>Verdura</li></ul>
+      </div>
+      <div class="toma toma--cena">
+        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">15 min</span></div>
+        <h3>Salmorejo y montaditos de anchoa</h3>
+        <p>Tomate maduro, un buen trozo de pan del día anterior, ajo, vinagre de Jerez y aceite en la batidora hasta que emulsione y palidezca. Muy frío, con huevo duro picado. Al lado, montaditos de anchoa, pimiento asado y aceituna.</p>
+        <p class="con">Cena de picoteo: <b>plato único</b>.</p>
+        <ul class="chips"><li class="destaca">Pescado azul</li><li>Verdura</li><li>Pan</li></ul>
+      </div>
+    </article>
+
+    <article class="dia">
+      <div class="fecha">
+        <div class="azulejo" aria-hidden="true">D</div>
+        <span>Domingo</span>
+      </div>
+      <div class="toma toma--comida">
+        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">30 min</span></div>
+        <h3>Marmitako de bonito</h3>
+        <p>Patata chascada a trozos irregulares, para que el almidón espese el caldo. Sofrito de pimiento y una cucharada de tomate, caldo y 20 minutos. Con el fuego apagado, el bonito en dados: tres minutos en el calor residual y ya está.</p>
+        <p class="con">Con <b>manzana asada</b> de postre.</p>
+        <ul class="chips"><li class="destaca">Pescado azul</li><li>Patata</li><li>Verdura</li></ul>
+      </div>
+      <div class="toma toma--cena">
+        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">15 min</span></div>
+        <h3>Revuelto de setas y gambas</h3>
+        <p>Setas de temporada salteadas a fuego fuerte y sin sal hasta que doren, ajo picado, gambas un minuto y los huevos al final a fuego bajo, removiendo sin parar. Cremoso, no cuajado.</p>
+        <p class="con">Con el <b>gazpacho</b> que queda en la jarra.</p>
+        <ul class="chips"><li class="destaca">Huevo</li><li>Marisco</li><li>Verdura</li></ul>
+      </div>
+    </article>
+
+  </section>
+
+  <div class="rotulo">
+    <h2>Domingo por la tarde</h2>
+    <p>40 minutos que sostienen la semana</p>
+  </div>
+
+  <div class="tareas">
+    <div class="tarea">
+      <p class="reloj">20 min</p>
+      <h3>Un sofrito grande</h3>
+      <p>Cebolla, ajo, pimiento y tomate para cuatro usos: alubias, pisto, fideos y paella. En un táper en la nevera aguanta cinco días.</p>
+    </div>
+    <div class="tarea">
+      <p class="reloj">15 min</p>
+      <h3>Cocer y reservar</h3>
+      <p>Patata, zanahoria y cuatro huevos en la misma olla. Van a la ensaladilla del viernes y al salmorejo del sábado.</p>
+    </div>
+    <div class="tarea">
+      <p class="reloj">10 min</p>
+      <h3>Jarra de gazpacho</h3>
+      <p>Litro y medio en la batidora. Sirve de cena, de entrante o de vaso a media tarde, y dura cuatro días.</p>
+    </div>
+    <div class="tarea">
+      <p class="reloj">5 min</p>
+      <h3>Verdura lavada</h3>
+      <p>Lechuga, tomate y cebolleta ya limpios y en un recipiente. La ensalada solo se hace si está a mano.</p>
+    </div>
+  </div>
+
+  <div class="rotulo">
+    <h2>La compra</h2>
+    <p>Una sola vez · 2 personas · 7 días</p>
+  </div>
+
+  <div class="compra">
+    <div class="puesto">
+      <h3>Frutería y verdulería</h3>
+      <ul>
+        <li>Cebolla <span class="cant">1 kg</span></li>
+        <li>Ajos <span class="cant">2 cabezas</span></li>
+        <li>Tomate maduro <span class="cant">1,5 kg</span></li>
+        <li>Tomate de ensalada <span class="cant">4 ud</span></li>
+        <li>Pimiento verde <span class="cant">4 ud</span></li>
+        <li>Pimiento rojo <span class="cant">2 ud</span></li>
+        <li>Calabacín <span class="cant">3 ud</span></li>
+        <li>Berenjena <span class="cant">1 ud</span></li>
+        <li>Zanahoria <span class="cant">500 g</span></li>
+        <li>Puerro <span class="cant">2 ud</span></li>
+        <li>Patata <span class="cant">2 kg</span></li>
+        <li>Espinacas <span class="cant">300 g</span></li>
+        <li>Setas de temporada <span class="cant">250 g</span></li>
+        <li>Champiñones <span class="cant">250 g</span></li>
+        <li>Lechuga y cebolleta <span class="cant">1 + 2 ud</span></li>
+        <li>Limón <span class="cant">2 ud</span></li>
+        <li>Perejil <span class="cant">1 manojo</span></li>
+        <li>Fruta variada <span class="cant">14 piezas</span></li>
+      </ul>
+    </div>
+    <div class="puesto">
+      <h3>Pescadería</h3>
+      <ul>
+        <li>Lomos de merluza <span class="cant">400 g</span></li>
+        <li>Bonito fresco <span class="cant">350 g</span></li>
+        <li>Anillas de calamar <span class="cant">300 g</span></li>
+        <li>Gambas peladas <span class="cant">250 g</span></li>
+        <li>Boquerones en vinagre <span class="cant">200 g</span></li>
+      </ul>
+      <h3 style="margin-top:22px">Carnicería</h3>
+      <ul>
+        <li>Contramuslo de pollo <span class="cant">400 g</span></li>
+        <li>Pollo troceado <span class="cant">400 g</span></li>
+      </ul>
+    </div>
+    <div class="puesto">
+      <h3>Huevos y lácteos</h3>
+      <ul>
+        <li>Huevos <span class="cant">18 ud</span></li>
+        <li>Yogur natural <span class="cant">4 ud</span></li>
+        <li>Leche o bebida vegetal <span class="cant">1 L</span></li>
+        <li>Queso curado en cuña <span class="cant">200 g</span></li>
+      </ul>
+      <h3 style="margin-top:22px">Conservas</h3>
+      <ul>
+        <li>Garbanzos cocidos <span class="cant">1 bote 400 g</span></li>
+        <li>Alubias blancas <span class="cant">1 bote 400 g</span></li>
+        <li>Ventresca de atún <span class="cant">2 latas</span></li>
+        <li>Atún en aceite <span class="cant">2 latas</span></li>
+        <li>Sardinillas <span class="cant">1 lata</span></li>
+        <li>Anchoas <span class="cant">1 lata</span></li>
+        <li>Guisantes <span class="cant">1 lata pequeña</span></li>
+        <li>Pimiento asado <span class="cant">1 tarro</span></li>
+        <li>Aceitunas <span class="cant">1 tarro</span></li>
+      </ul>
+    </div>
+    <div class="puesto">
+      <h3>Despensa</h3>
+      <ul>
+        <li>Lentejas pardinas <span class="cant">250 g</span></li>
+        <li>Arroz redondo <span class="cant">200 g</span></li>
+        <li>Fideo nº 2 <span class="cant">250 g</span></li>
+        <li>Caldo de pescado <span class="cant">1 L</span></li>
+        <li>Caldo de pollo <span class="cant">1 L</span></li>
+        <li>Aceite de oliva virgen extra <span class="cant">1 L</span></li>
+        <li>Vinagre de Jerez <span class="cant">1 botella</span></li>
+        <li>Pimentón de la Vera <span class="cant">1 lata</span></li>
+        <li>Azafrán o colorante <span class="cant">1 sobre</span></li>
+        <li>Laurel y comino <span class="cant">—</span></li>
+        <li>Mayonesa <span class="cant">1 bote</span></li>
+        <li>Pan de pueblo <span class="cant">2 barras</span></li>
+        <li>Vino blanco de guisar <span class="cant">1 botella</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rotulo">
+    <h2>El reparto</h2>
+    <p>Raciones por semana y persona</p>
+  </div>
+
+  <div class="balance">
+    <div><p class="valor">3</p><p class="clave">Legumbre</p></div>
+    <div><p class="valor">6</p><p class="clave">Pescado y marisco</p></div>
+    <div><p class="valor">4</p><p class="clave">De ello, azul</p></div>
+    <div><p class="valor">2</p><p class="clave">Ave</p></div>
+    <div><p class="valor">7</p><p class="clave">Huevos</p></div>
+    <div><p class="valor">0</p><p class="clave">Carne roja</p></div>
+    <div><p class="valor">14</p><p class="clave">Tomas con verdura</p></div>
+  </div>
+
+  <div class="rotulo">
+    <h2>Notas del nutricionista</h2>
+    <p>Cinco cosas antes de empezar</p>
+  </div>
+
+  <div class="notas">
+    <div class="nota">
+      <h3>Aquí falta el desayuno</h3>
+      <p>Este menú cubre comida y cena, que es lo que pedisteis. Completadlo con un desayuno de verdad —café con leche, pan con tomate y aceite, o avena con fruta y un yogur— y algo a media mañana: una pieza de fruta o un puñado de almendras. Sin eso, la cena se convierte en un atracón.</p>
+    </div>
+    <div class="nota">
+      <h3>Las cantidades son orientativas</h3>
+      <p>A ojo, la comida ronda las 600-750 kcal y la cena las 450-550. Dos personas de 25-30 años suelen moverse entre 2.000 y 2.600 kcal al día según lo que entrenen, así que el ajuste se hace en el pan, el arroz y la patata, no en la verdura ni en la proteína.</p>
+    </div>
+    <div class="nota">
+      <h3>No le tengáis miedo al aceite</h3>
+      <p>Cuatro o cinco cucharadas de aceite de oliva virgen extra al día son parte del plan, no un exceso: es la grasa que sostiene esta forma de comer. Lo que conviene vigilar es la sal, y para eso están el pimentón, el laurel, el ajo y el vinagre de Jerez.</p>
+    </div>
+    <div class="nota">
+      <h3>Si os apetece carne</h3>
+      <p>La semana sale sin carne roja, y no la echaréis de menos. Si aun así queréis, cambiad la paella del sábado por solomillo de cerdo a la plancha con pimientos de Padrón: una vez a la semana entra perfectamente.</p>
+    </div>
+    <div class="nota">
+      <h3>El orden es negociable</h3>
+      <p>Los días son intercambiables salvo dos anclas: la ensaladilla del viernes depende de lo que cocéis el domingo, y el salmorejo del sábado agradece un pan que ya lleve un día. Todo lo demás se mueve según quién llegue antes a casa.</p>
+    </div>
+  </div>
+
+  <p class="pie">Menú pensado para dos adultos sanos, sin alergias, intolerancias ni tratamiento médico de por medio. Si hay embarazo, una patología crónica o un objetivo de peso concreto, esto sirve como base pero conviene que alguien lo ajuste con vuestros datos delante.</p>
+
+</div>
+</body>
+</html>
