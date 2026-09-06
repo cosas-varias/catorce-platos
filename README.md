@@ -7,7 +7,7 @@ receta concreta como sugerencia. Ningún plato por encima de 35 minutos, lista
 de la compra por puestos de mercado y los cuarenta y cinco minutos de
 preparación que sostienen la semana.
 
-**Página:** https://copa-ie.github.io/catorce-platos/
+**Página:** https://cosas-varias.github.io/catorce-platos/
 
 Una sola página estática, sin dependencias ni build. `index.html` lo contiene
 todo salvo las tipografías, que se cargan de Google Fonts.
