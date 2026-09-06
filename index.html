@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Menú semanal español para dos: siete comidas y siete cenas, con lista de la compra y las tareas del domingo.">
+<meta name="description" content="Catorce platos para dos, del miércoles por la noche al miércoles a mediodía: el tipo de plato de cada toma, una receta de sugerencia y la lista de la compra.">
 <meta property="og:title" content="Catorce Platos">
-<meta property="og:description" content="Menú semanal español para dos: siete comidas y siete cenas, con lista de la compra y las tareas del domingo.">
+<meta property="og:description" content="Catorce platos para dos, del miércoles por la noche al miércoles a mediodía: el tipo de plato de cada toma, una receta de sugerencia y la lista de la compra.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%A5%98</text></svg>">
 <style>
@@ -287,6 +287,52 @@
     color: var(--texto);
   }
 
+  .toma .sug {
+    display: flex;
+    align-items: baseline;
+    gap: 9px;
+    margin: 0;
+  }
+
+  .toma .sug em {
+    flex: 0 0 auto;
+    font-family: var(--dato);
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--pimenton);
+  }
+
+  .toma .sug b {
+    font-weight: 500;
+    font-size: 14.5px;
+    color: var(--texto);
+  }
+
+  .toma--linde {
+    justify-content: center;
+    gap: 5px;
+    background: none;
+  }
+
+  .toma--linde p {
+    font-family: var(--dato);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--suave);
+    max-width: 30ch;
+  }
+
+  .toma--linde p.eco {
+    text-transform: none;
+    letter-spacing: 0;
+    font-family: var(--cuerpo);
+    font-size: 13.5px;
+  }
+
   .chips {
     display: flex;
     flex-wrap: wrap;
@@ -512,9 +558,10 @@
   <header class="cabecera">
     <p class="eyebrow">Menú semanal · Cocina española de diario</p>
     <h1>Catorce platos<br><em>y ni un día repetido</em></h1>
-    <p class="entradilla">Siete comidas y siete cenas para dos, con lo que se encuentra en cualquier mercado de septiembre. Nada pasa de treinta y cinco minutos y casi todo se apoya en el mismo sofrito.</p>
+    <p class="entradilla">Catorce tomas seguidas para dos, del miércoles por la noche al miércoles a mediodía. Cada una dice primero de qué va —legumbre, arroz, revuelto— y debajo lleva una receta de sugerencia. Nada pasa de treinta y cinco minutos y casi todo se apoya en el mismo sofrito.</p>
     <ul class="supuestos">
       <li>2 personas · 25-30 años</li>
+      <li>Del miércoles cena al miércoles comida</li>
       <li>Sin alergias ni intolerancias</li>
       <li>Omnívoro</li>
       <li>20-35 min por plato</li>
@@ -524,71 +571,27 @@
 
   <div class="rotulo">
     <h2>La semana</h2>
-    <p>Comida · Cena</p>
+    <p>Tipo de plato · Sugerencia</p>
   </div>
 
   <section class="semana">
 
     <article class="dia">
       <div class="fecha">
-        <div class="azulejo" aria-hidden="true">L</div>
-        <span>Lunes</span>
-      </div>
-      <div class="toma toma--comida">
-        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">30 min</span></div>
-        <h3>Lentejas estofadas exprés</h3>
-        <p>Sofríe cebolla, zanahoria y pimiento verde. Añade las lentejas pardinas, laurel, una cucharadita de pimentón de la Vera y agua a dos dedos por encima: 25 minutos a fuego medio, sin remover mucho.</p>
-        <p class="con">Con <b>naranja</b> de postre.</p>
-        <ul class="chips"><li class="destaca">Legumbre</li><li>Verdura</li></ul>
-      </div>
-      <div class="toma toma--cena">
-        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">30 min</span></div>
-        <h3>Tortilla de patata con cebolla</h3>
-        <p>400 g de patata en láminas finas y una cebolla, pochadas a fuego suave en aceite generoso. Escurre, mezcla con cuatro huevos batidos y cuaja dos minutos por cara: que quede jugosa por dentro.</p>
-        <p class="con">Con <b>ensalada de tomate y cebolleta</b>.</p>
-        <ul class="chips"><li class="destaca">Huevo</li><li>Patata</li><li>Verdura</li></ul>
-      </div>
-    </article>
-
-    <article class="dia">
-      <div class="fecha">
-        <div class="azulejo" aria-hidden="true">M</div>
-        <span>Martes</span>
-      </div>
-      <div class="toma toma--comida">
-        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">30 min</span></div>
-        <h3>Merluza al horno con patata panadera</h3>
-        <p>Patata en rodajas finas y cebolla al horno, 15 minutos a 200°. Coloca encima los lomos de merluza con ajo laminado, perejil y un chorro de vino blanco: 10 minutos más y fuera.</p>
-        <p class="con">Con <b>pimiento verde asado</b> en la misma bandeja.</p>
-        <ul class="chips"><li class="destaca">Pescado blanco</li><li>Patata</li><li>Verdura</li></ul>
-      </div>
-      <div class="toma toma--cena">
-        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">20 min</span></div>
-        <h3>Crema de calabacín y tostas de sardinilla</h3>
-        <p>Dos calabacines, un puerro y media patata a hervir 15 minutos; bate con un hilo de aceite crudo. Aparte, pan tostado con sardinillas en aceite y tiras de pimiento asado.</p>
-        <p class="con">Con <b>yogur natural</b> de postre.</p>
-        <ul class="chips"><li class="destaca">Pescado azul</li><li>Verdura</li><li>Pan</li></ul>
-      </div>
-    </article>
-
-    <article class="dia">
-      <div class="fecha">
         <div class="azulejo" aria-hidden="true">X</div>
         <span>Miércoles</span>
       </div>
-      <div class="toma toma--comida">
-        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">20 min</span></div>
-        <h3>Garbanzos con espinacas y huevo</h3>
-        <p>Dora tres ajos laminados, aparta del fuego y añade el pimentón para que no se queme. Vuelve al fuego con los garbanzos de bote escurridos y las espinacas; corona con un huevo escalfado por cabeza.</p>
-        <p class="con">Con <b>uvas</b> de postre.</p>
-        <ul class="chips"><li class="destaca">Legumbre</li><li>Huevo</li><li>Verdura</li></ul>
+      <div class="toma toma--linde">
+        <p>Aquí empieza la semana</p>
+        <p class="eco">La compra y los cuarenta y cinco minutos de preparación caen esta misma tarde.</p>
       </div>
       <div class="toma toma--cena">
-        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">25 min</span></div>
-        <h3>Pollo al ajillo con champiñones</h3>
-        <p>Contramuslo en dados, bien dorado a fuego fuerte con ocho dientes de ajo enteros. Añade los champiñones en cuartos, un chorro de vino blanco y perejil picado al apagar.</p>
-        <p class="con">Con <b>pan de pueblo</b> para el jugo.</p>
-        <ul class="chips"><li class="destaca">Ave</li><li>Verdura</li><li>Pan</li></ul>
+        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">30 min</span></div>
+        <h3>Huevos</h3>
+        <p class="sug"><em>Sugerencia</em><b>Tortilla de patata con cebolla</b></p>
+        <p>400 g de patata en láminas finas y una cebolla, pochadas a fuego suave en aceite generoso. Escurre, mezcla con cuatro huevos batidos y cuaja dos minutos por cara: que quede jugosa por dentro.</p>
+        <p class="con">Con <b>ensalada de tomate y cebolleta</b>.</p>
+        <ul class="chips"><li class="destaca">Huevo</li><li>Patata</li><li>Verdura</li></ul>
       </div>
     </article>
 
@@ -598,18 +601,20 @@
         <span>Jueves</span>
       </div>
       <div class="toma toma--comida">
-        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">25 min</span></div>
-        <h3>Alubias blancas con verduras y ventresca</h3>
-        <p>Sofrito de cebolla, pimiento verde y tomate rallado. Incorpora las alubias de bote, pimentón y un cazo de caldo; mueve la cazuela en vez de remover para que ligue. Ventresca de atún por encima al servir.</p>
-        <p class="con">Con <b>higos</b> de postre.</p>
-        <ul class="chips"><li class="destaca">Legumbre</li><li>Pescado azul</li><li>Verdura</li></ul>
+        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">30 min</span></div>
+        <h3>Legumbre estofada</h3>
+        <p class="sug"><em>Sugerencia</em><b>Lentejas pardinas exprés</b></p>
+        <p>Parte del sofrito de ayer. Añade las lentejas, laurel, una cucharadita de pimentón de la Vera y agua a dos dedos por encima: 25 minutos a fuego medio, sin remover mucho.</p>
+        <p class="con">Con <b>naranja</b> de postre.</p>
+        <ul class="chips"><li class="destaca">Legumbre</li><li>Verdura</li></ul>
       </div>
       <div class="toma toma--cena">
-        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">30 min</span></div>
-        <h3>Pisto manchego con huevos rotos</h3>
-        <p>Calabacín, berenjena, pimiento y tomate en dados pequeños, tapados 20 minutos a fuego medio hasta que suelten el agua y la recuperen. Rompe dos huevos encima, tapa cuatro minutos y sirve en la sartén.</p>
-        <p class="con">Con <b>pan</b> y una pizca de comino.</p>
-        <ul class="chips"><li class="destaca">Huevo</li><li>Verdura</li><li>Pan</li></ul>
+        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">20 min</span></div>
+        <h3>Crema de verdura y tostas</h3>
+        <p class="sug"><em>Sugerencia</em><b>Crema de calabacín con sardinilla</b></p>
+        <p>Dos calabacines, un puerro y media patata a hervir 15 minutos; bate con un hilo de aceite crudo. Aparte, pan tostado con sardinillas en aceite y tiras de pimiento asado.</p>
+        <p class="con">Con <b>yogur natural</b> de postre.</p>
+        <ul class="chips"><li class="destaca">Pescado azul</li><li>Verdura</li><li>Pan</li></ul>
       </div>
     </article>
 
@@ -619,18 +624,20 @@
         <span>Viernes</span>
       </div>
       <div class="toma toma--comida">
-        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">25 min</span></div>
-        <h3>Fideos a la marinera</h3>
-        <p>Tuesta el fideo del número 2 en el sofrito hasta que huela a pan. Moja con caldo de pescado caliente, añade anillas de calamar y gambas, 12 minutos a fuego vivo y 3 de reposo fuera del fuego.</p>
-        <p class="con">Con <b>ensalada verde</b> al lado.</p>
-        <ul class="chips"><li class="destaca">Marisco</li><li>Pasta</li><li>Verdura</li></ul>
+        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">30 min</span></div>
+        <h3>Pescado blanco al horno</h3>
+        <p class="sug"><em>Sugerencia</em><b>Merluza con patata panadera</b></p>
+        <p>Patata en rodajas finas y cebolla al horno, 15 minutos a 200°. Coloca encima los lomos con ajo laminado, perejil y un chorro de vino blanco: 10 minutos más y fuera.</p>
+        <p class="con">Con <b>pimiento verde asado</b> en la misma bandeja.</p>
+        <ul class="chips"><li class="destaca">Pescado blanco</li><li>Patata</li><li>Verdura</li></ul>
       </div>
       <div class="toma toma--cena">
         <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">10 min</span></div>
-        <h3>Ensaladilla y boquerones en vinagre</h3>
-        <p>Con la patata, la zanahoria y los huevos ya cocidos del domingo: trocea, añade atún, guisantes y dos cucharadas de mayonesa aligerada con yogur. Boquerones y aceitunas en un plato aparte.</p>
+        <h3>Ensalada de patata y conserva</h3>
+        <p class="sug"><em>Sugerencia</em><b>Ensaladilla con boquerones en vinagre</b></p>
+        <p>Con la patata, la zanahoria y los huevos ya cocidos del miércoles: trocea, añade atún, guisantes y dos cucharadas de mayonesa aligerada con yogur. Boquerones y aceitunas en un plato aparte.</p>
         <p class="con">Con <b>melón</b> de postre.</p>
-        <ul class="chips"><li class="destaca">Pescado azul</li><li>Huevo</li><li>Patata</li></ul>
+        <ul class="chips"><li class="destaca">Pescado azul</li><li>Huevo</li><li>Patata</li><li>Verdura</li></ul>
       </div>
     </article>
 
@@ -641,14 +648,16 @@
       </div>
       <div class="toma toma--comida">
         <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">35 min</span></div>
-        <h3>Paella de pollo y verduras</h3>
-        <p>Dora el pollo, haz el sofrito en la misma paella y nacara el arroz redondo un minuto. Caldo caliente al doble de volumen, azafrán, y 18 minutos sin tocar el arroz: 10 a fuego fuerte, 8 flojo. Cinco de reposo tapado.</p>
+        <h3>Arroz</h3>
+        <p class="sug"><em>Sugerencia</em><b>Paella de pollo y verduras</b></p>
+        <p>Dora el pollo, calienta el sofrito en la misma paella y nacara el arroz redondo un minuto. Caldo caliente al doble de volumen, azafrán, y 18 minutos sin tocar el arroz: 10 a fuego fuerte, 8 flojo. Cinco de reposo tapado.</p>
         <p class="con">Con <b>limón</b> en cuartos, si os gusta.</p>
         <ul class="chips"><li class="destaca">Ave</li><li>Arroz</li><li>Verdura</li></ul>
       </div>
       <div class="toma toma--cena">
         <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">15 min</span></div>
-        <h3>Salmorejo y montaditos de anchoa</h3>
+        <h3>Sopa fría y montaditos</h3>
+        <p class="sug"><em>Sugerencia</em><b>Salmorejo con montaditos de anchoa</b></p>
         <p>Tomate maduro, un buen trozo de pan del día anterior, ajo, vinagre de Jerez y aceite en la batidora hasta que emulsione y palidezca. Muy frío, con huevo duro picado. Al lado, montaditos de anchoa, pimiento asado y aceituna.</p>
         <p class="con">Cena de picoteo: <b>plato único</b>.</p>
         <ul class="chips"><li class="destaca">Pescado azul</li><li>Verdura</li><li>Pan</li></ul>
@@ -662,32 +671,99 @@
       </div>
       <div class="toma toma--comida">
         <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">30 min</span></div>
-        <h3>Marmitako de bonito</h3>
+        <h3>Guiso de patata con pescado azul</h3>
+        <p class="sug"><em>Sugerencia</em><b>Marmitako de bonito</b></p>
         <p>Patata chascada a trozos irregulares, para que el almidón espese el caldo. Sofrito de pimiento y una cucharada de tomate, caldo y 20 minutos. Con el fuego apagado, el bonito en dados: tres minutos en el calor residual y ya está.</p>
         <p class="con">Con <b>manzana asada</b> de postre.</p>
         <ul class="chips"><li class="destaca">Pescado azul</li><li>Patata</li><li>Verdura</li></ul>
       </div>
       <div class="toma toma--cena">
         <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">15 min</span></div>
-        <h3>Revuelto de setas y gambas</h3>
+        <h3>Revuelto</h3>
+        <p class="sug"><em>Sugerencia</em><b>Revuelto de setas y gambas</b></p>
         <p>Setas de temporada salteadas a fuego fuerte y sin sal hasta que doren, ajo picado, gambas un minuto y los huevos al final a fuego bajo, removiendo sin parar. Cremoso, no cuajado.</p>
-        <p class="con">Con el <b>gazpacho</b> que queda en la jarra.</p>
+        <p class="con">Con lo que quede de <b>gazpacho</b> en la jarra.</p>
         <ul class="chips"><li class="destaca">Huevo</li><li>Marisco</li><li>Verdura</li></ul>
+      </div>
+    </article>
+
+    <article class="dia">
+      <div class="fecha">
+        <div class="azulejo" aria-hidden="true">L</div>
+        <span>Lunes</span>
+      </div>
+      <div class="toma toma--comida">
+        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">25 min</span></div>
+        <h3>Legumbre con conserva</h3>
+        <p class="sug"><em>Sugerencia</em><b>Alubias blancas con ventresca</b></p>
+        <p>Descongela el sofrito y refréscalo con tomate rallado. Incorpora las alubias de bote, pimentón y un cazo de caldo; mueve la cazuela en vez de remover para que ligue. Ventresca de atún por encima al servir.</p>
+        <p class="con">Con <b>higos</b> de postre.</p>
+        <ul class="chips"><li class="destaca">Legumbre</li><li>Pescado azul</li><li>Verdura</li></ul>
+      </div>
+      <div class="toma toma--cena">
+        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">25 min</span></div>
+        <h3>Ave a la sartén</h3>
+        <p class="sug"><em>Sugerencia</em><b>Pollo al ajillo con champiñones</b></p>
+        <p>Contramuslo en dados, bien dorado a fuego fuerte con ocho dientes de ajo enteros. Añade los champiñones en cuartos, un chorro de vino blanco y perejil picado al apagar.</p>
+        <p class="con">Con <b>pan de pueblo</b> para el jugo.</p>
+        <ul class="chips"><li class="destaca">Ave</li><li>Verdura</li><li>Pan</li></ul>
+      </div>
+    </article>
+
+    <article class="dia">
+      <div class="fecha">
+        <div class="azulejo" aria-hidden="true">M</div>
+        <span>Martes</span>
+      </div>
+      <div class="toma toma--comida">
+        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">25 min</span></div>
+        <h3>Pasta corta con marisco</h3>
+        <p class="sug"><em>Sugerencia</em><b>Fideos a la marinera</b></p>
+        <p>Tuesta el fideo del número 2 en el resto del sofrito hasta que huela a pan. Moja con caldo de pescado caliente, añade anillas de calamar y gambas, 12 minutos a fuego vivo y 3 de reposo fuera del fuego.</p>
+        <p class="con">Con <b>ensalada verde</b> al lado.</p>
+        <ul class="chips"><li class="destaca">Marisco</li><li>Pasta</li><li>Verdura</li></ul>
+      </div>
+      <div class="toma toma--cena">
+        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">30 min</span></div>
+        <h3>Verdura guisada con huevo</h3>
+        <p class="sug"><em>Sugerencia</em><b>Pisto manchego con huevos rotos</b></p>
+        <p>Calabacín, berenjena, pimiento y tomate en dados pequeños, tapados 20 minutos a fuego medio hasta que suelten el agua y la recuperen. Rompe dos huevos encima, tapa cuatro minutos y sirve en la sartén.</p>
+        <p class="con">Con <b>pan</b> y una pizca de comino.</p>
+        <ul class="chips"><li class="destaca">Huevo</li><li>Verdura</li><li>Pan</li></ul>
+      </div>
+    </article>
+
+    <article class="dia">
+      <div class="fecha">
+        <div class="azulejo" aria-hidden="true">X</div>
+        <span>Miércoles</span>
+      </div>
+      <div class="toma toma--comida">
+        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">20 min</span></div>
+        <h3>Legumbre con verdura de hoja</h3>
+        <p class="sug"><em>Sugerencia</em><b>Garbanzos con espinacas y huevo</b></p>
+        <p>Dora tres ajos laminados, aparta del fuego y añade el pimentón para que no se queme. Vuelve al fuego con los garbanzos de bote escurridos y las espinacas; corona con un huevo escalfado por cabeza.</p>
+        <p class="con">Con <b>uvas</b> de postre.</p>
+        <ul class="chips"><li class="destaca">Legumbre</li><li>Huevo</li><li>Verdura</li></ul>
+      </div>
+      <div class="toma toma--linde">
+        <p>Aquí se cierra el círculo</p>
+        <p class="eco">La nevera queda vacía a mediodía y la cena vuelve a ser la primera de la lista.</p>
       </div>
     </article>
 
   </section>
 
   <div class="rotulo">
-    <h2>Domingo por la tarde</h2>
-    <p>40 minutos que sostienen la semana</p>
+    <h2>Miércoles por la tarde</h2>
+    <p>45 minutos que sostienen la semana</p>
   </div>
 
   <div class="tareas">
     <div class="tarea">
       <p class="reloj">20 min</p>
       <h3>Un sofrito grande</h3>
-      <p>Cebolla, ajo, pimiento y tomate para cuatro usos: alubias, pisto, fideos y paella. En un táper en la nevera aguanta cinco días.</p>
+      <p>Cebolla, ajo, pimiento y tomate para cuatro usos: lentejas, paella, alubias y fideos. La mitad en un táper en la nevera, que aguanta cinco días; la otra mitad congelada en dos bolsas planas para el lunes y el martes.</p>
     </div>
     <div class="tarea">
       <p class="reloj">15 min</p>
@@ -697,18 +773,23 @@
     <div class="tarea">
       <p class="reloj">10 min</p>
       <h3>Jarra de gazpacho</h3>
-      <p>Litro y medio en la batidora. Sirve de cena, de entrante o de vaso a media tarde, y dura cuatro días.</p>
+      <p>Litro y medio en la batidora. Sirve de cena, de entrante o de vaso a media tarde, y llega bien hasta el domingo.</p>
     </div>
     <div class="tarea">
       <p class="reloj">5 min</p>
       <h3>Verdura lavada</h3>
       <p>Lechuga, tomate y cebolleta ya limpios y en un recipiente. La ensalada solo se hace si está a mano.</p>
     </div>
+    <div class="tarea">
+      <p class="reloj">5 min</p>
+      <h3>Lo que no corre prisa</h3>
+      <p>Bonito, calamar, gambas y el pollo del ajillo al congelador. Se bajan a la nevera la noche antes y llegan al domingo y al martes como recién comprados.</p>
+    </div>
   </div>
 
   <div class="rotulo">
     <h2>La compra</h2>
-    <p>Una sola vez · 2 personas · 7 días</p>
+    <p>El miércoles · 2 personas · 14 tomas</p>
   </div>
 
   <div class="compra">
@@ -793,25 +874,29 @@
 
   <div class="rotulo">
     <h2>El reparto</h2>
-    <p>Raciones por semana y persona</p>
+    <p>Cuántas de las catorce tomas</p>
   </div>
 
   <div class="balance">
     <div><p class="valor">3</p><p class="clave">Legumbre</p></div>
-    <div><p class="valor">6</p><p class="clave">Pescado y marisco</p></div>
-    <div><p class="valor">4</p><p class="clave">De ello, azul</p></div>
+    <div><p class="valor">8</p><p class="clave">Pescado y marisco</p></div>
+    <div><p class="valor">5</p><p class="clave">De ello, azul</p></div>
     <div><p class="valor">2</p><p class="clave">Ave</p></div>
-    <div><p class="valor">7</p><p class="clave">Huevos</p></div>
+    <div><p class="valor">5</p><p class="clave">Tomas con huevo</p></div>
     <div><p class="valor">0</p><p class="clave">Carne roja</p></div>
     <div><p class="valor">14</p><p class="clave">Tomas con verdura</p></div>
   </div>
 
   <div class="rotulo">
     <h2>Notas del nutricionista</h2>
-    <p>Cinco cosas antes de empezar</p>
+    <p>Seis cosas antes de empezar</p>
   </div>
 
   <div class="notas">
+    <div class="nota">
+      <h3>El tipo de plato manda</h3>
+      <p>El título de cada toma es la categoría —legumbre, arroz, pescado blanco al horno, revuelto—, y la receta de debajo es solo una sugerencia. Si un día apetecen garbanzos en vez de lentejas, o bacalao en vez de merluza, el hueco en la semana sigue funcionando: lo que sostiene el equilibrio es la categoría, no la receta concreta.</p>
+    </div>
     <div class="nota">
       <h3>Aquí falta el desayuno</h3>
       <p>Este menú cubre comida y cena, que es lo que pedisteis. Completadlo con un desayuno de verdad —café con leche, pan con tomate y aceite, o avena con fruta y un yogur— y algo a media mañana: una pieza de fruta o un puñado de almendras. Sin eso, la cena se convierte en un atracón.</p>
@@ -826,11 +911,11 @@
     </div>
     <div class="nota">
       <h3>Si os apetece carne</h3>
-      <p>La semana sale sin carne roja, y no la echaréis de menos. Si aun así queréis, cambiad la paella del sábado por solomillo de cerdo a la plancha con pimientos de Padrón: una vez a la semana entra perfectamente.</p>
+      <p>La semana sale sin carne roja, y no la echaréis de menos. Si aun así queréis, el hueco natural es el «ave a la sartén» del lunes: solomillo de cerdo a la plancha con pimientos de Padrón, una vez por semana, entra perfectamente.</p>
     </div>
     <div class="nota">
       <h3>El orden es negociable</h3>
-      <p>Los días son intercambiables salvo dos anclas: la ensaladilla del viernes depende de lo que cocéis el domingo, y el salmorejo del sábado agradece un pan que ya lleve un día. Todo lo demás se mueve según quién llegue antes a casa.</p>
+      <p>La semana arranca el miércoles por la noche, después de la compra, y se cierra el miércoles siguiente a mediodía. Dentro hay tres anclas: la ensaladilla del viernes depende de lo que cocéis el miércoles por la tarde, el salmorejo del sábado agradece un pan que ya lleve un día, y el pescado fresco quiere estar hecho antes del fin de semana. Todo lo demás se mueve según quién llegue antes a casa.</p>
     </div>
   </div>
 
