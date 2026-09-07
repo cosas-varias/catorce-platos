@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Catorce platos para dos, del miércoles por la noche al miércoles a mediodía: el tipo de plato de cada toma, una receta de sugerencia y la lista de la compra.">
+<meta name="description" content="Catorce platos para dos, del miércoles por la noche al miércoles a mediodía: carne en once de las catorce tomas, una rotación para repetir semanas y una compra de treinta y cinco artículos.">
 <meta property="og:title" content="Catorce Platos">
-<meta property="og:description" content="Catorce platos para dos, del miércoles por la noche al miércoles a mediodía: el tipo de plato de cada toma, una receta de sugerencia y la lista de la compra.">
+<meta property="og:description" content="Catorce platos para dos, del miércoles por la noche al miércoles a mediodía: carne en once de las catorce tomas, una rotación para repetir semanas y una compra de treinta y cinco artículos.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%A5%98</text></svg>">
 <style>
@@ -549,6 +549,37 @@
       border-left: 2px solid var(--oliva);
     }
   }
+
+  /* ---------- rotación de semanas ---------- */
+
+  .toma .rot {
+    font-family: var(--dato);
+    font-size: 11px;
+    line-height: 1.55;
+    color: var(--suave);
+    border-top: 1px dotted var(--linea);
+    padding-top: 8px;
+    margin-top: 3px;
+    max-width: 46ch;
+  }
+
+  .toma .rot em {
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 10px;
+    color: var(--oliva);
+  }
+
+  .fijo .tarea .reloj { color: var(--anil); letter-spacing: 0.12em; text-transform: uppercase; }
+
+  .puesto .apunte {
+    font-size: 12.5px;
+    line-height: 1.45;
+    color: var(--suave);
+    margin: 14px 0 0;
+  }
 </style>
 </head>
 <body>
@@ -557,21 +588,49 @@
 
   <header class="cabecera">
     <p class="eyebrow">Menú semanal · Cocina española de diario</p>
-    <h1>Catorce platos<br><em>y ni un día repetido</em></h1>
-    <p class="entradilla">Catorce tomas seguidas para dos, del miércoles por la noche al miércoles a mediodía. Cada una dice primero de qué va —legumbre, arroz, revuelto— y debajo lleva una receta de sugerencia. Nada pasa de treinta y cinco minutos y casi todo se apoya en el mismo sofrito.</p>
+    <h1>Catorce platos<br><em>y carne casi todos los días</em></h1>
+    <p class="entradilla">Catorce tomas seguidas para dos, del miércoles por la noche al miércoles a mediodía. Once llevan carne. Cada toma dice primero de qué va —carne a la plancha, legumbre con embutido, asado— y debajo lleva una receta de sugerencia y otras tres para las semanas siguientes. Treinta y cinco artículos en la compra, ni uno más.</p>
     <ul class="supuestos">
       <li>2 personas · 25-30 años</li>
       <li>Del miércoles cena al miércoles comida</li>
-      <li>Sin alergias ni intolerancias</li>
-      <li>Omnívoro</li>
-      <li>20-35 min por plato</li>
-      <li>Temporada: septiembre</li>
+      <li>Carne en 11 de las 14 tomas</li>
+      <li>35 artículos en la lista</li>
+      <li>20-35 min (salvo el asado del domingo)</li>
+      <li>Pensado para repetir semanas</li>
     </ul>
   </header>
 
   <div class="rotulo">
+    <h2>Lo que no cambia</h2>
+    <p>Fuera del menú · Todos los días</p>
+  </div>
+
+  <div class="tareas fijo">
+    <div class="tarea">
+      <p class="reloj">Desayuno</p>
+      <h3>Leche y fruta</h3>
+      <p>Vaso de leche y una pieza de fruta, o las dos cosas en un batido. No lo repetimos en cada día del menú: está aquí y se da por hecho.</p>
+    </div>
+    <div class="tarea">
+      <p class="reloj">Almuerzo</p>
+      <h3>Pan con embutido</h3>
+      <p>Media barra con jamón, lomo o chorizo, y fruta si el cuerpo la pide. Por eso la barra diaria y los 700 g de embutido están en la lista de la compra.</p>
+    </div>
+    <div class="tarea">
+      <p class="reloj">Postre de cena</p>
+      <h3>Yogur</h3>
+      <p>Uno por cabeza después de cenar, las siete noches. Catorce yogures por semana, y ya no vuelven a aparecer.</p>
+    </div>
+    <div class="tarea">
+      <p class="reloj">Comida y cena</p>
+      <h3>Lo de abajo</h3>
+      <p>Las catorce tomas que sí hay que cocinar. Sin postre indicado: si apetece algo, es el yogur o la fruta que ya tenéis en casa.</p>
+    </div>
+  </div>
+
+  <div class="rotulo">
     <h2>La semana</h2>
-    <p>Tipo de plato · Sugerencia</p>
+    <p>Tipo de plato · Sugerencia · Rotación</p>
   </div>
 
   <section class="semana">
@@ -586,12 +645,12 @@
         <p class="eco">La compra y los cuarenta y cinco minutos de preparación caen esta misma tarde.</p>
       </div>
       <div class="toma toma--cena">
-        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">30 min</span></div>
-        <h3>Huevos</h3>
-        <p class="sug"><em>Sugerencia</em><b>Tortilla de patata con cebolla</b></p>
-        <p>400 g de patata en láminas finas y una cebolla, pochadas a fuego suave en aceite generoso. Escurre, mezcla con cuatro huevos batidos y cuaja dos minutos por cara: que quede jugosa por dentro.</p>
-        <p class="con">Con <b>ensalada de tomate y cebolleta</b>.</p>
-        <ul class="chips"><li class="destaca">Huevo</li><li>Patata</li><li>Verdura</li></ul>
+        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">25 min</span></div>
+        <h3>Carne roja a la plancha</h3>
+        <p class="sug"><em>Sugerencia</em><b>Filetes de ternera con pimientos</b></p>
+        <p>Patata en rodajas finas a fuego medio en aceite abundante hasta que esté tierna, y en los últimos minutos el pimiento verde en tiras. Aparta, sube el fuego al máximo y marca los filetes un minuto por cara en la misma sartén. Sal gorda al sacarlos, nunca antes.</p>
+        <p class="rot"><em>Otras semanas</em> · Entrecot al ajillo · Filetes empanados · Churrasco con chimichurri</p>
+        <ul class="chips"><li class="destaca">Vacuno</li><li>Patata</li><li>Verdura</li></ul>
       </div>
     </article>
 
@@ -602,19 +661,19 @@
       </div>
       <div class="toma toma--comida">
         <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">30 min</span></div>
-        <h3>Legumbre estofada</h3>
-        <p class="sug"><em>Sugerencia</em><b>Lentejas pardinas exprés</b></p>
-        <p>Parte del sofrito de ayer. Añade las lentejas, laurel, una cucharadita de pimentón de la Vera y agua a dos dedos por encima: 25 minutos a fuego medio, sin remover mucho.</p>
-        <p class="con">Con <b>naranja</b> de postre.</p>
-        <ul class="chips"><li class="destaca">Legumbre</li><li>Verdura</li></ul>
+        <h3>Legumbre con embutido</h3>
+        <p class="sug"><em>Sugerencia</em><b>Lentejas con chorizo y panceta</b></p>
+        <p>Arranca del sofrito de ayer. Chorizo en rodajas y panceta en dados dos minutos, hasta que suelten la grasa; después las lentejas, laurel, una cucharadita de pimentón de la Vera y agua a dos dedos por encima. Veinticinco minutos a fuego medio, casi sin remover.</p>
+        <p class="rot"><em>Otras semanas</em> · Garbanzos con chorizo · Lentejas con costilla · Alubias con panceta y pimentón</p>
+        <ul class="chips"><li class="destaca">Legumbre</li><li>Embutido</li><li>Verdura</li></ul>
       </div>
       <div class="toma toma--cena">
-        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">20 min</span></div>
-        <h3>Crema de verdura y tostas</h3>
-        <p class="sug"><em>Sugerencia</em><b>Crema de calabacín con sardinilla</b></p>
-        <p>Dos calabacines, un puerro y media patata a hervir 15 minutos; bate con un hilo de aceite crudo. Aparte, pan tostado con sardinillas en aceite y tiras de pimiento asado.</p>
-        <p class="con">Con <b>yogur natural</b> de postre.</p>
-        <ul class="chips"><li class="destaca">Pescado azul</li><li>Verdura</li><li>Pan</li></ul>
+        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">10 min</span></div>
+        <h3>Ensalada de patata y conserva</h3>
+        <p class="sug"><em>Sugerencia</em><b>Ensaladilla con ventresca</b></p>
+        <p>La patata, la zanahoria y los huevos ya están cocidos desde el miércoles. Trocea, añade guisantes, aceite y un golpe de vinagre, y remueve con cuidado para no hacer puré. La ventresca encima, en lascas enteras.</p>
+        <p class="rot"><em>Otras semanas</em> · Patatas aliñadas con atún · Ensalada campera · Pimientos rellenos de atún</p>
+        <ul class="chips"><li class="destaca">Pescado azul</li><li>Huevo</li><li>Patata</li></ul>
       </div>
     </article>
 
@@ -624,20 +683,20 @@
         <span>Viernes</span>
       </div>
       <div class="toma toma--comida">
-        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">30 min</span></div>
-        <h3>Pescado blanco al horno</h3>
-        <p class="sug"><em>Sugerencia</em><b>Merluza con patata panadera</b></p>
-        <p>Patata en rodajas finas y cebolla al horno, 15 minutos a 200°. Coloca encima los lomos con ajo laminado, perejil y un chorro de vino blanco: 10 minutos más y fuera.</p>
-        <p class="con">Con <b>pimiento verde asado</b> en la misma bandeja.</p>
-        <ul class="chips"><li class="destaca">Pescado blanco</li><li>Patata</li><li>Verdura</li></ul>
+        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">35 min</span></div>
+        <h3>Ave guisada</h3>
+        <p class="sug"><em>Sugerencia</em><b>Pollo al chilindrón</b></p>
+        <p>Dora los trozos de pollo con la piel hacia abajo hasta que estén tostados de verdad; ese fondo es la salsa. Añade el sofrito, pimiento rojo en tiras y medio vaso de vino blanco, y deja veinticinco minutos tapado a fuego suave.</p>
+        <p class="rot"><em>Otras semanas</em> · Pollo al ajillo con patatas · Pollo a la cerveza · Pollo en salsa con champiñones</p>
+        <ul class="chips"><li class="destaca">Ave</li><li>Verdura</li><li>Pan</li></ul>
       </div>
       <div class="toma toma--cena">
-        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">10 min</span></div>
-        <h3>Ensalada de patata y conserva</h3>
-        <p class="sug"><em>Sugerencia</em><b>Ensaladilla con boquerones en vinagre</b></p>
-        <p>Con la patata, la zanahoria y los huevos ya cocidos del miércoles: trocea, añade atún, guisantes y dos cucharadas de mayonesa aligerada con yogur. Boquerones y aceitunas en un plato aparte.</p>
-        <p class="con">Con <b>melón</b> de postre.</p>
-        <ul class="chips"><li class="destaca">Pescado azul</li><li>Huevo</li><li>Patata</li><li>Verdura</li></ul>
+        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">30 min</span></div>
+        <h3>Pescado blanco al horno</h3>
+        <p class="sug"><em>Sugerencia</em><b>Merluza con patata panadera</b></p>
+        <p>Patata en rodajas finas y cebolla al horno, quince minutos a 200°. Encima los lomos —descongelados en la nevera desde anoche— con ajo laminado y un chorro de vino blanco: diez minutos más y fuera, que se seca en nada.</p>
+        <p class="rot"><em>Otras semanas</em> · Merluza a la marinera · Bacalao con tomate · Lomos rebozados con pimientos</p>
+        <ul class="chips"><li class="destaca">Pescado blanco</li><li>Patata</li><li>Verdura</li></ul>
       </div>
     </article>
 
@@ -648,19 +707,19 @@
       </div>
       <div class="toma toma--comida">
         <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">35 min</span></div>
-        <h3>Arroz</h3>
-        <p class="sug"><em>Sugerencia</em><b>Paella de pollo y verduras</b></p>
-        <p>Dora el pollo, calienta el sofrito en la misma paella y nacara el arroz redondo un minuto. Caldo caliente al doble de volumen, azafrán, y 18 minutos sin tocar el arroz: 10 a fuego fuerte, 8 flojo. Cinco de reposo tapado.</p>
-        <p class="con">Con <b>limón</b> en cuartos, si os gusta.</p>
+        <h3>Arroz con carne</h3>
+        <p class="sug"><em>Sugerencia</em><b>Arroz con pollo y pimiento</b></p>
+        <p>Dora el pollo en la paella, calienta el sofrito en el mismo aceite y nacara el arroz redondo un minuto. Caldo caliente al doble de volumen y dieciocho minutos sin tocarlo: diez fuertes, ocho flojos. Cinco de reposo tapado con un paño.</p>
+        <p class="rot"><em>Otras semanas</em> · Arroz al horno · Arroz con costilla · Arroz meloso de magro</p>
         <ul class="chips"><li class="destaca">Ave</li><li>Arroz</li><li>Verdura</li></ul>
       </div>
       <div class="toma toma--cena">
-        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">15 min</span></div>
-        <h3>Sopa fría y montaditos</h3>
-        <p class="sug"><em>Sugerencia</em><b>Salmorejo con montaditos de anchoa</b></p>
-        <p>Tomate maduro, un buen trozo de pan del día anterior, ajo, vinagre de Jerez y aceite en la batidora hasta que emulsione y palidezca. Muy frío, con huevo duro picado. Al lado, montaditos de anchoa, pimiento asado y aceituna.</p>
-        <p class="con">Cena de picoteo: <b>plato único</b>.</p>
-        <ul class="chips"><li class="destaca">Pescado azul</li><li>Verdura</li><li>Pan</li></ul>
+        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">25 min</span></div>
+        <h3>Carne picada a la plancha</h3>
+        <p class="sug"><em>Sugerencia</em><b>Hamburguesa casera con cebolla pochada</b></p>
+        <p>Cuatrocientos gramos de picada con un ajo muy picado y sal; forma cuatro hamburguesas gruesas y no las aplastes en la sartén. Tres minutos por cara a fuego fuerte. Mientras, una cebolla en juliana pochándose despacio al lado, y pan tostado.</p>
+        <p class="rot"><em>Otras semanas</em> · Pincho moruno de cerdo · Hamburguesa con champiñones · Filetes rusos en salsa</p>
+        <ul class="chips"><li class="destaca">Vacuno</li><li>Pan</li><li>Verdura</li></ul>
       </div>
     </article>
 
@@ -670,20 +729,20 @@
         <span>Domingo</span>
       </div>
       <div class="toma toma--comida">
-        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">30 min</span></div>
-        <h3>Guiso de patata con pescado azul</h3>
-        <p class="sug"><em>Sugerencia</em><b>Marmitako de bonito</b></p>
-        <p>Patata chascada a trozos irregulares, para que el almidón espese el caldo. Sofrito de pimiento y una cucharada de tomate, caldo y 20 minutos. Con el fuego apagado, el bonito en dados: tres minutos en el calor residual y ya está.</p>
-        <p class="con">Con <b>manzana asada</b> de postre.</p>
-        <ul class="chips"><li class="destaca">Pescado azul</li><li>Patata</li><li>Verdura</li></ul>
+        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">55 min · 10 de trabajo</span></div>
+        <h3>Asado al horno</h3>
+        <p class="sug"><em>Sugerencia</em><b>Pollo asado con patatas y cebolla</b></p>
+        <p>Cama de patata en rodajas y cebolla en el fondo de la bandeja, con un dedo de agua y vino. Los cuartos de pollo encima, untados con ajo, pimentón, aceite y sal. Cincuenta minutos a 190° sin abrir el horno. Único plato del día que pasa de media hora, y casi todo es esperar.</p>
+        <p class="rot"><em>Otras semanas</em> · Pollo al limón · Muslos adobados al pimentón · Costillar de cerdo a la miel</p>
+        <ul class="chips"><li class="destaca">Ave</li><li>Patata</li><li>Verdura</li></ul>
       </div>
       <div class="toma toma--cena">
         <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">15 min</span></div>
-        <h3>Revuelto</h3>
-        <p class="sug"><em>Sugerencia</em><b>Revuelto de setas y gambas</b></p>
-        <p>Setas de temporada salteadas a fuego fuerte y sin sal hasta que doren, ajo picado, gambas un minuto y los huevos al final a fuego bajo, removiendo sin parar. Cremoso, no cuajado.</p>
-        <p class="con">Con lo que quede de <b>gazpacho</b> en la jarra.</p>
-        <ul class="chips"><li class="destaca">Huevo</li><li>Marisco</li><li>Verdura</li></ul>
+        <h3>Sopa fría y picoteo</h3>
+        <p class="sug"><em>Sugerencia</em><b>Salmorejo con huevo y jamón</b></p>
+        <p>Tomate maduro, un buen trozo de pan del día anterior, ajo, vinagre y aceite en la batidora hasta que emulsione y palidezca. Muy frío, con huevo duro picado y jamón por encima. Al lado, montaditos de embutido y lo que haya sobrado del asado.</p>
+        <p class="rot"><em>Otras semanas</em> · Gazpacho con guarnición · Crema de calabacín con jamón · Sopa de ajo con huevo (en invierno)</p>
+        <ul class="chips"><li class="destaca">Embutido</li><li>Huevo</li><li>Verdura</li><li>Pan</li></ul>
       </div>
     </article>
 
@@ -694,19 +753,19 @@
       </div>
       <div class="toma toma--comida">
         <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">25 min</span></div>
-        <h3>Legumbre con conserva</h3>
-        <p class="sug"><em>Sugerencia</em><b>Alubias blancas con ventresca</b></p>
-        <p>Descongela el sofrito y refréscalo con tomate rallado. Incorpora las alubias de bote, pimentón y un cazo de caldo; mueve la cazuela en vez de remover para que ligue. Ventresca de atún por encima al servir.</p>
-        <p class="con">Con <b>higos</b> de postre.</p>
-        <ul class="chips"><li class="destaca">Legumbre</li><li>Pescado azul</li><li>Verdura</li></ul>
+        <h3>Pasta con carne</h3>
+        <p class="sug"><em>Sugerencia</em><b>Macarrones con carne picada</b></p>
+        <p>Descongela una bolsa de picada y dórala fuerte, deshaciéndola con la cuchara hasta que se tueste. Sofrito, tomate triturado y quince minutos a fuego lento mientras cuece la pasta. Una pizca de comino y otra de pimentón lo cambian todo.</p>
+        <p class="rot"><em>Otras semanas</em> · Espaguetis con albóndigas · Macarrones con chorizo · Pasta al horno gratinada</p>
+        <ul class="chips"><li class="destaca">Vacuno</li><li>Pasta</li><li>Verdura</li></ul>
       </div>
       <div class="toma toma--cena">
-        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">25 min</span></div>
-        <h3>Ave a la sartén</h3>
-        <p class="sug"><em>Sugerencia</em><b>Pollo al ajillo con champiñones</b></p>
-        <p>Contramuslo en dados, bien dorado a fuego fuerte con ocho dientes de ajo enteros. Añade los champiñones en cuartos, un chorro de vino blanco y perejil picado al apagar.</p>
-        <p class="con">Con <b>pan de pueblo</b> para el jugo.</p>
-        <ul class="chips"><li class="destaca">Ave</li><li>Verdura</li><li>Pan</li></ul>
+        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">30 min</span></div>
+        <h3>Verdura guisada con huevo</h3>
+        <p class="sug"><em>Sugerencia</em><b>Pisto con huevos rotos</b></p>
+        <p>Calabacín, pimiento, cebolla y tomate en dados pequeños, tapados veinte minutos a fuego medio hasta que suelten el agua y se la vuelvan a beber. Rompe dos huevos encima, tapa cuatro minutos y sirve en la misma sartén. La única cena sin carne de la semana, y hace falta.</p>
+        <p class="rot"><em>Otras semanas</em> · Patatas a lo pobre con huevo · Huevos a la flamenca · Revuelto de calabacín y champiñón</p>
+        <ul class="chips"><li class="destaca">Huevo</li><li>Verdura</li><li>Pan</li></ul>
       </div>
     </article>
 
@@ -716,20 +775,20 @@
         <span>Martes</span>
       </div>
       <div class="toma toma--comida">
-        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">25 min</span></div>
-        <h3>Pasta corta con marisco</h3>
-        <p class="sug"><em>Sugerencia</em><b>Fideos a la marinera</b></p>
-        <p>Tuesta el fideo del número 2 en el resto del sofrito hasta que huela a pan. Moja con caldo de pescado caliente, añade anillas de calamar y gambas, 12 minutos a fuego vivo y 3 de reposo fuera del fuego.</p>
-        <p class="con">Con <b>ensalada verde</b> al lado.</p>
-        <ul class="chips"><li class="destaca">Marisco</li><li>Pasta</li><li>Verdura</li></ul>
+        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">30 min</span></div>
+        <h3>Legumbre con carne</h3>
+        <p class="sug"><em>Sugerencia</em><b>Garbanzos con magro de cerdo</b></p>
+        <p>Dora el magro en dados hasta que esté bien tostado, añade el último sofrito y, fuera del fuego, el pimentón para que no se queme. Vuelve al calor con los garbanzos escurridos y un cazo de caldo: quince minutos moviendo la cazuela en vez de remover, y liga solo.</p>
+        <p class="rot"><em>Otras semanas</em> · Alubias con magro · Garbanzos con pollo · Potaje con chorizo</p>
+        <ul class="chips"><li class="destaca">Legumbre</li><li>Cerdo</li><li>Verdura</li></ul>
       </div>
       <div class="toma toma--cena">
-        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">30 min</span></div>
-        <h3>Verdura guisada con huevo</h3>
-        <p class="sug"><em>Sugerencia</em><b>Pisto manchego con huevos rotos</b></p>
-        <p>Calabacín, berenjena, pimiento y tomate en dados pequeños, tapados 20 minutos a fuego medio hasta que suelten el agua y la recuperen. Rompe dos huevos encima, tapa cuatro minutos y sirve en la sartén.</p>
-        <p class="con">Con <b>pan</b> y una pizca de comino.</p>
-        <ul class="chips"><li class="destaca">Huevo</li><li>Verdura</li><li>Pan</li></ul>
+        <div class="toma-cab"><span class="marca"></span>Cena<span class="reloj">20 min</span></div>
+        <h3>Cerdo a la plancha</h3>
+        <p class="sug"><em>Sugerencia</em><b>Magro al ajillo con champiñones</b></p>
+        <p>Magro en dados a fuego fuerte con cuatro ajos laminados, sin tocarlo hasta que agarre color. Los champiñones en cuartos después, que sueltan agua, y un chorro de vino blanco al final para arrastrar el fondo de la sartén.</p>
+        <p class="rot"><em>Otras semanas</em> · Solomillo a la mostaza · Lomo a la plancha con pimientos · Magro con tomate</p>
+        <ul class="chips"><li class="destaca">Cerdo</li><li>Verdura</li><li>Pan</li></ul>
       </div>
     </article>
 
@@ -739,12 +798,12 @@
         <span>Miércoles</span>
       </div>
       <div class="toma toma--comida">
-        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">20 min</span></div>
-        <h3>Legumbre con verdura de hoja</h3>
-        <p class="sug"><em>Sugerencia</em><b>Garbanzos con espinacas y huevo</b></p>
-        <p>Dora tres ajos laminados, aparta del fuego y añade el pimentón para que no se queme. Vuelve al fuego con los garbanzos de bote escurridos y las espinacas; corona con un huevo escalfado por cabeza.</p>
-        <p class="con">Con <b>uvas</b> de postre.</p>
-        <ul class="chips"><li class="destaca">Legumbre</li><li>Huevo</li><li>Verdura</li></ul>
+        <div class="toma-cab"><span class="marca"></span>Comida<span class="reloj">35 min</span></div>
+        <h3>Carne picada en salsa</h3>
+        <p class="sug"><em>Sugerencia</em><b>Albóndigas con guisantes</b></p>
+        <p>La picada que queda, con un huevo, ajo y pan mojado en leche; bolas del tamaño de una nuez, enharinadas y selladas en la sartén. Fuera, y en ese aceite el resto del tomate y un poco de caldo. Vuelven a la salsa con los guisantes, quince minutos a fuego suave.</p>
+        <p class="rot"><em>Otras semanas</em> · Albóndigas en salsa de almendra · Pimientos rellenos de carne · Rollo de carne al horno</p>
+        <ul class="chips"><li class="destaca">Vacuno</li><li>Verdura</li><li>Huevo</li></ul>
       </div>
       <div class="toma toma--linde">
         <p>Aquí se cierra el círculo</p>
@@ -763,112 +822,121 @@
     <div class="tarea">
       <p class="reloj">20 min</p>
       <h3>Un sofrito grande</h3>
-      <p>Cebolla, ajo, pimiento y tomate para cuatro usos: lentejas, paella, alubias y fideos. La mitad en un táper en la nevera, que aguanta cinco días; la otra mitad congelada en dos bolsas planas para el lunes y el martes.</p>
-    </div>
-    <div class="tarea">
-      <p class="reloj">15 min</p>
-      <h3>Cocer y reservar</h3>
-      <p>Patata, zanahoria y cuatro huevos en la misma olla. Van a la ensaladilla del viernes y al salmorejo del sábado.</p>
+      <p>Cebolla, ajo, pimiento y tomate para cinco usos: lentejas, chilindrón, arroz, macarrones y garbanzos. Un táper en la nevera para lo de esta semana y dos bolsas planas al congelador para el lunes y el martes.</p>
     </div>
     <div class="tarea">
       <p class="reloj">10 min</p>
-      <h3>Jarra de gazpacho</h3>
-      <p>Litro y medio en la batidora. Sirve de cena, de entrante o de vaso a media tarde, y llega bien hasta el domingo.</p>
+      <h3>Partir y congelar la carne</h3>
+      <p>Lo más importante con una nevera pequeña. La carne se compra una vez y se porciona el mismo día: en la nevera solo se quedan los filetes del miércoles y el pollo del viernes. Todo lo demás, bolsas planas y congelador.</p>
+    </div>
+    <div class="tarea">
+      <p class="reloj">10 min</p>
+      <h3>Cocer y reservar</h3>
+      <p>Patata, zanahoria y cuatro huevos en la misma olla, con la misma agua. Van a la ensaladilla del jueves y al salmorejo del domingo, y ocupan un solo táper.</p>
     </div>
     <div class="tarea">
       <p class="reloj">5 min</p>
       <h3>Verdura lavada</h3>
-      <p>Lechuga, tomate y cebolleta ya limpios y en un recipiente. La ensalada solo se hace si está a mano.</p>
-    </div>
-    <div class="tarea">
-      <p class="reloj">5 min</p>
-      <h3>Lo que no corre prisa</h3>
-      <p>Bonito, calamar, gambas y el pollo del ajillo al congelador. Se bajan a la nevera la noche antes y llegan al domingo y al martes como recién comprados.</p>
+      <p>Lechuga y tomate limpios y en un recipiente. La ensalada solo se hace si está a mano; si hay que lavarla, no se hace.</p>
     </div>
   </div>
 
   <div class="rotulo">
     <h2>La compra</h2>
-    <p>El miércoles · 2 personas · 14 tomas</p>
+    <p>El miércoles · 2 personas · 35 artículos</p>
   </div>
 
   <div class="compra">
     <div class="puesto">
       <h3>Frutería y verdulería</h3>
       <ul>
-        <li>Cebolla <span class="cant">1 kg</span></li>
-        <li>Ajos <span class="cant">2 cabezas</span></li>
-        <li>Tomate maduro <span class="cant">1,5 kg</span></li>
-        <li>Tomate de ensalada <span class="cant">4 ud</span></li>
+        <li>Cebolla <span class="cant">2 kg</span></li>
+        <li>Ajos <span class="cant">1 cabeza</span></li>
+        <li>Tomate maduro <span class="cant">2 kg</span></li>
         <li>Pimiento verde <span class="cant">4 ud</span></li>
         <li>Pimiento rojo <span class="cant">2 ud</span></li>
-        <li>Calabacín <span class="cant">3 ud</span></li>
-        <li>Berenjena <span class="cant">1 ud</span></li>
-        <li>Zanahoria <span class="cant">500 g</span></li>
-        <li>Puerro <span class="cant">2 ud</span></li>
-        <li>Patata <span class="cant">2 kg</span></li>
-        <li>Espinacas <span class="cant">300 g</span></li>
-        <li>Setas de temporada <span class="cant">250 g</span></li>
+        <li>Patata <span class="cant">3 kg</span></li>
+        <li>Zanahoria <span class="cant">4 ud</span></li>
+        <li>Calabacín <span class="cant">2 ud</span></li>
         <li>Champiñones <span class="cant">250 g</span></li>
-        <li>Lechuga y cebolleta <span class="cant">1 + 2 ud</span></li>
-        <li>Limón <span class="cant">2 ud</span></li>
-        <li>Perejil <span class="cant">1 manojo</span></li>
-        <li>Fruta variada <span class="cant">14 piezas</span></li>
+        <li>Lechuga <span class="cant">1 ud</span></li>
       </ul>
+      <p class="apunte">Diez verduras y todas entran en más de un plato. La fruta va aparte: es la de vuestros desayunos y almuerzos.</p>
     </div>
     <div class="puesto">
-      <h3>Pescadería</h3>
+      <h3>Carnicería</h3>
       <ul>
-        <li>Lomos de merluza <span class="cant">400 g</span></li>
-        <li>Bonito fresco <span class="cant">350 g</span></li>
-        <li>Anillas de calamar <span class="cant">300 g</span></li>
-        <li>Gambas peladas <span class="cant">250 g</span></li>
-        <li>Boquerones en vinagre <span class="cant">200 g</span></li>
+        <li>Filetes de ternera <span class="cant">500 g</span></li>
+        <li>Carne picada mixta <span class="cant">1 kg</span></li>
+        <li>Pollo troceado <span class="cant">2 kg</span></li>
+        <li>Magro de cerdo en dados <span class="cant">700 g</span></li>
+        <li>Chorizo <span class="cant">200 g</span></li>
+        <li>Panceta <span class="cant">150 g</span></li>
+        <li>Embutido para almuerzos <span class="cant">700 g</span></li>
       </ul>
-      <h3 style="margin-top:22px">Carnicería</h3>
+      <h3 style="margin-top:22px">Congelados</h3>
       <ul>
-        <li>Contramuslo de pollo <span class="cant">400 g</span></li>
-        <li>Pollo troceado <span class="cant">400 g</span></li>
+        <li>Lomos de merluza <span class="cant">500 g</span></li>
+        <li>Guisantes <span class="cant">400 g</span></li>
       </ul>
     </div>
     <div class="puesto">
       <h3>Huevos y lácteos</h3>
       <ul>
         <li>Huevos <span class="cant">18 ud</span></li>
-        <li>Yogur natural <span class="cant">4 ud</span></li>
-        <li>Leche o bebida vegetal <span class="cant">1 L</span></li>
-        <li>Queso curado en cuña <span class="cant">200 g</span></li>
+        <li>Yogur natural <span class="cant">14 ud</span></li>
+        <li>Leche <span class="cant">6 L</span></li>
       </ul>
       <h3 style="margin-top:22px">Conservas</h3>
       <ul>
         <li>Garbanzos cocidos <span class="cant">1 bote 400 g</span></li>
-        <li>Alubias blancas <span class="cant">1 bote 400 g</span></li>
-        <li>Ventresca de atún <span class="cant">2 latas</span></li>
-        <li>Atún en aceite <span class="cant">2 latas</span></li>
-        <li>Sardinillas <span class="cant">1 lata</span></li>
-        <li>Anchoas <span class="cant">1 lata</span></li>
-        <li>Guisantes <span class="cant">1 lata pequeña</span></li>
-        <li>Pimiento asado <span class="cant">1 tarro</span></li>
-        <li>Aceitunas <span class="cant">1 tarro</span></li>
+        <li>Ventresca o atún <span class="cant">3 latas</span></li>
+        <li>Tomate triturado <span class="cant">1 brik</span></li>
       </ul>
     </div>
     <div class="puesto">
       <h3>Despensa</h3>
       <ul>
         <li>Lentejas pardinas <span class="cant">250 g</span></li>
-        <li>Arroz redondo <span class="cant">200 g</span></li>
-        <li>Fideo nº 2 <span class="cant">250 g</span></li>
-        <li>Caldo de pescado <span class="cant">1 L</span></li>
-        <li>Caldo de pollo <span class="cant">1 L</span></li>
+        <li>Arroz redondo <span class="cant">300 g</span></li>
+        <li>Macarrones <span class="cant">300 g</span></li>
+        <li>Caldo de pollo <span class="cant">1 L o pastillas</span></li>
         <li>Aceite de oliva virgen extra <span class="cant">1 L</span></li>
-        <li>Vinagre de Jerez <span class="cant">1 botella</span></li>
+        <li>Vinagre <span class="cant">1 botella</span></li>
         <li>Pimentón de la Vera <span class="cant">1 lata</span></li>
-        <li>Azafrán o colorante <span class="cant">1 sobre</span></li>
         <li>Laurel y comino <span class="cant">—</span></li>
-        <li>Mayonesa <span class="cant">1 bote</span></li>
-        <li>Pan de pueblo <span class="cant">2 barras</span></li>
         <li>Vino blanco de guisar <span class="cant">1 botella</span></li>
+        <li>Pan <span class="cant">1 barra al día</span></li>
       </ul>
+      <p class="apunte">Del caldo al vino, todo eso dura meses: se compra la primera semana y en las siguientes desaparece de la lista.</p>
+    </div>
+  </div>
+
+  <div class="rotulo">
+    <h2>La nevera pequeña</h2>
+    <p>Qué se queda fuera y en qué orden se gasta</p>
+  </div>
+
+  <div class="tareas">
+    <div class="tarea">
+      <p class="reloj">Congelador</p>
+      <h3>Casi toda la carne</h3>
+      <p>Picada en tres bolsas planas, pollo en dos, magro en dos, merluza y guisantes en su bolsa. Congelado el mismo miércoles y bajado a la nevera la noche antes de cada plato: cero riesgo de que se estropee nada.</p>
+    </div>
+    <div class="tarea">
+      <p class="reloj">Nevera</p>
+      <h3>Solo cuatro cosas frescas</h3>
+      <p>Los filetes de ternera, el pollo del viernes, el táper de sofrito y el de patata y huevo cocidos. Más la leche, los yogures y el embutido. Cabe todo en un estante y medio.</p>
+    </div>
+    <div class="tarea">
+      <p class="reloj">Fuera</p>
+      <h3>Patata, cebolla y tomate</h3>
+      <p>Los tres kilos de patata y los dos de cebolla no van a la nevera: sitio fresco, oscuro y aireado. El tomate, en la encimera, madura mejor y sabe a algo.</p>
+    </div>
+    <div class="tarea">
+      <p class="reloj">Orden</p>
+      <h3>Lo fresco, primero</h3>
+      <p>La ternera el miércoles, el pollo el viernes, la lechuga y el tomate de ensalada antes del domingo. Del lunes en adelante todo sale del congelador o de la despensa, que es cuando la nevera ya está vacía.</p>
     </div>
   </div>
 
@@ -878,44 +946,60 @@
   </div>
 
   <div class="balance">
-    <div><p class="valor">3</p><p class="clave">Legumbre</p></div>
-    <div><p class="valor">8</p><p class="clave">Pescado y marisco</p></div>
-    <div><p class="valor">5</p><p class="clave">De ello, azul</p></div>
-    <div><p class="valor">2</p><p class="clave">Ave</p></div>
-    <div><p class="valor">5</p><p class="clave">Tomas con huevo</p></div>
-    <div><p class="valor">0</p><p class="clave">Carne roja</p></div>
-    <div><p class="valor">14</p><p class="clave">Tomas con verdura</p></div>
+    <div><p class="valor">11</p><p class="clave">Con carne</p></div>
+    <div><p class="valor">4</p><p class="clave">Vacuno</p></div>
+    <div><p class="valor">4</p><p class="clave">Cerdo y embutido</p></div>
+    <div><p class="valor">3</p><p class="clave">Ave</p></div>
+    <div><p class="valor">2</p><p class="clave">Pescado</p></div>
+    <div><p class="valor">2</p><p class="clave">Legumbre</p></div>
+    <div><p class="valor">14</p><p class="clave">Con verdura</p></div>
   </div>
 
   <div class="rotulo">
-    <h2>Notas del nutricionista</h2>
-    <p>Seis cosas antes de empezar</p>
+    <h2>Semana tras semana</h2>
+    <p>Cómo se repite sin cansar</p>
   </div>
 
   <div class="notas">
     <div class="nota">
-      <h3>El tipo de plato manda</h3>
-      <p>El título de cada toma es la categoría —legumbre, arroz, pescado blanco al horno, revuelto—, y la receta de debajo es solo una sugerencia. Si un día apetecen garbanzos en vez de lentejas, o bacalao en vez de merluza, el hueco en la semana sigue funcionando: lo que sostiene el equilibrio es la categoría, no la receta concreta.</p>
+      <h3>Las casillas no se tocan</h3>
+      <p>Lo que se repite cada semana son las catorce casillas: carne a la plancha el miércoles, legumbre con embutido el jueves, asado el domingo. Lo que cambia es la receta de dentro. Cada toma trae tres alternativas en la línea de rotación, así que hay cuatro semanas antes de repetir un plato exacto, y para entonces ya apetece.</p>
     </div>
     <div class="nota">
-      <h3>Aquí falta el desayuno</h3>
-      <p>Este menú cubre comida y cena, que es lo que pedisteis. Completadlo con un desayuno de verdad —café con leche, pan con tomate y aceite, o avena con fruta y un yogur— y algo a media mañana: una pieza de fruta o un puñado de almendras. Sin eso, la cena se convierte en un atracón.</p>
+      <h3>La lista casi no cambia</h3>
+      <p>Ese es el motivo de fondo. Las rotaciones están elegidas para caer dentro de los mismos treinta y cinco artículos: la picada sirve igual para hamburguesas que para filetes rusos, y el magro para el guiso o para la plancha. Se compra sin pensar, y a la cuarta semana ya os sabéis la lista de memoria.</p>
+    </div>
+    <div class="nota">
+      <h3>El sofrito es el truco</h3>
+      <p>Cinco de las catorce tomas salen del mismo sofrito del miércoles. Si un día no da la vida, la escapatoria es siempre la misma: sofrito, algo de carne descongelada y patata o pasta. Sale en veinte minutos y no se parece a un fracaso.</p>
+    </div>
+    <div class="nota">
+      <h3>Qué hacer con las sobras</h3>
+      <p>Están contadas y tienen destino: el pollo del asado va a los montaditos del domingo por la noche, el pisto sobrante acompaña la carne del martes y el sofrito que quede se congela para la semana siguiente. Nada se guarda «por si acaso», que es como se estropea la comida.</p>
+    </div>
+  </div>
+
+  <div class="rotulo">
+    <h2>Notas del nutricionista</h2>
+    <p>Cuatro cosas antes de empezar</p>
+  </div>
+
+  <div class="notas">
+    <div class="nota">
+      <h3>Once tomas con carne: se puede</h3>
+      <p>Pedisteis carne y aquí la hay, pero conviene saber dónde está el listón. Las recomendaciones habituales sitúan la carne roja —vacuno, cerdo, cordero— en torno a 500 g a la semana ya cocinados: con cuatro tomas de vacuno y las de cerdo estáis justo en ese entorno, no por encima. El ave no cuenta ahí, y por eso hay tres.</p>
+    </div>
+    <div class="nota">
+      <h3>Lo que sí vigilaría es el embutido</h3>
+      <p>El pan con embutido de cada almuerzo son siete tomas más que no aparecen en el menú, y el chorizo y la panceta de los guisos se suman. Es lo único de la semana que ganaría con un cambio pequeño: jamón serrano o lomo la mayoría de los días y dejar el chorizo para la cazuela, donde rinde más con menos cantidad.</p>
+    </div>
+    <div class="nota">
+      <h3>Dos tomas de pescado son pocas</h3>
+      <p>Lo digo y no insisto más: dos son el mínimo, no el objetivo. Si algún día no apetece carne, el hueco natural es la cena del martes, y con lomos congelados no hay que cambiar la compra. Y si no, no pasa nada: la semana se sostiene igual.</p>
     </div>
     <div class="nota">
       <h3>Las cantidades son orientativas</h3>
-      <p>A ojo, la comida ronda las 600-750 kcal y la cena las 450-550. Dos personas de 25-30 años suelen moverse entre 2.000 y 2.600 kcal al día según lo que entrenen, así que el ajuste se hace en el pan, el arroz y la patata, no en la verdura ni en la proteína.</p>
-    </div>
-    <div class="nota">
-      <h3>No le tengáis miedo al aceite</h3>
-      <p>Cuatro o cinco cucharadas de aceite de oliva virgen extra al día son parte del plan, no un exceso: es la grasa que sostiene esta forma de comer. Lo que conviene vigilar es la sal, y para eso están el pimentón, el laurel, el ajo y el vinagre de Jerez.</p>
-    </div>
-    <div class="nota">
-      <h3>Si os apetece carne</h3>
-      <p>La semana sale sin carne roja, y no la echaréis de menos. Si aun así queréis, el hueco natural es el «ave a la sartén» del lunes: solomillo de cerdo a la plancha con pimientos de Padrón, una vez por semana, entra perfectamente.</p>
-    </div>
-    <div class="nota">
-      <h3>El orden es negociable</h3>
-      <p>La semana arranca el miércoles por la noche, después de la compra, y se cierra el miércoles siguiente a mediodía. Dentro hay tres anclas: la ensaladilla del viernes depende de lo que cocéis el miércoles por la tarde, el salmorejo del sábado agradece un pan que ya lleve un día, y el pescado fresco quiere estar hecho antes del fin de semana. Todo lo demás se mueve según quién llegue antes a casa.</p>
+      <p>A ojo, la comida ronda las 700-850 kcal y la cena las 500-600, más el desayuno y el almuerzo que ya lleváis por vuestra cuenta. Dos personas de 25-30 años suelen moverse entre 2.000 y 2.600 kcal al día según lo que entrenen, y el ajuste se hace en el pan, el arroz y la patata, nunca en la verdura ni en la proteína.</p>
     </div>
   </div>
 
