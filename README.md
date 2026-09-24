@@ -1,11 +1,12 @@
 # Catorce Platos
 
 Menú de catorce tomas seguidas de cocina española para dos personas, del
-miércoles por la noche al miércoles a mediodía. Once de las catorce llevan
-carne. Cada toma dice primero de qué va —carne roja a la plancha, legumbre con
-embutido, asado al horno— y debajo lleva una receta concreta como sugerencia y
-otras tres para las semanas siguientes. Ningún plato pasa de 35 minutos salvo
-el asado del domingo, y la compra entera son 35 artículos.
+miércoles por la noche al miércoles a mediodía. Seis de las catorce llevan
+carne; el resto reparte pescado y marisco, legumbre y huevo con verdura. Cada
+toma dice primero de qué va —legumbre con verdura, arroz de marisco, tortilla
+de patata— y debajo lleva una receta concreta como sugerencia y otras tres
+para las semanas siguientes. Ningún plato pasa de 35 minutos salvo el asado
+del domingo, y la compra entera son 35 artículos.
 
 **Página:** https://cosas-varias.github.io/catorce-platos/
 
@@ -21,16 +22,16 @@ todo salvo las tipografías, que se cargan de Google Fonts.
   el método en una frase, el tiempo real de cocina, tres recetas de rotación
   para las semanas siguientes y los grupos de alimentos.
 - **Miércoles por la tarde** — 45 minutos tras la compra: el sofrito grande que
-  alimenta cinco tomas, la carne partida y congelada, la olla de cocidos y la
-  verdura lavada.
+  alimenta cinco tomas, la carne y el pescado partidos y congelados, la olla
+  de cocidos y la verdura lavada.
 - **La compra** — 35 artículos para dos y catorce tomas, por puesto de mercado.
 - **La nevera pequeña** — qué se congela el mismo día, qué se queda fresco y en
   qué orden se gasta para que no se estropee nada.
 - **El reparto** — cuántas de las catorce tomas caen en cada grupo.
 - **Semana tras semana** — cómo se repite el esquema sin cansar y sin cambiar
   la lista de la compra.
-- **Notas** — dónde está el listón de la carne roja, el embutido de los
-  almuerzos, el pescado que falta y los rangos calóricos.
+- **Notas** — dónde está el listón de la carne roja, el pescado de la semana,
+  el embutido de los almuerzos y los rangos calóricos.
 
 ## Por qué empieza un miércoles
 
