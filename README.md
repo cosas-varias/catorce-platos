@@ -1,7 +1,7 @@
 # Catorce Platos
 
 Menú de catorce tomas seguidas de cocina española para dos personas, del
-miércoles por la noche al miércoles a mediodía. Seis de las catorce llevan
+lunes por la noche al lunes a mediodía. Seis de las catorce llevan
 carne; el resto reparte pescado y marisco, legumbre y huevo con verdura. Cada
 toma dice primero de qué va —legumbre con verdura, arroz de marisco, tortilla
 de patata— y debajo lleva una receta concreta como sugerencia y otras tres
@@ -17,11 +17,11 @@ todo salvo las tipografías, que se cargan de Google Fonts.
 
 - **Lo que no cambia** — desayuno, almuerzo y postre de cena están fijos y
   fuera del menú: leche y fruta, pan con embutido, y un yogur cada noche.
-- **La semana** — catorce tomas en orden, de la cena del miércoles a la comida
-  del miércoles siguiente. De cada una: el tipo de plato, la receta sugerida,
+- **La semana** — catorce tomas en orden, de la cena del lunes a la comida
+  del lunes siguiente. De cada una: el tipo de plato, la receta sugerida,
   el método en una frase, el tiempo real de cocina, tres recetas de rotación
   para las semanas siguientes y los grupos de alimentos.
-- **Miércoles por la tarde** — 45 minutos tras la compra: el sofrito grande que
+- **Lunes por la tarde** — 45 minutos tras la compra: el sofrito grande que
   alimenta cinco tomas, la carne y el pescado partidos y congelados, la olla
   de cocidos y la verdura lavada.
 - **La compra** — 35 artículos para dos y catorce tomas, por puesto de mercado.
@@ -33,9 +33,9 @@ todo salvo las tipografías, que se cargan de Google Fonts.
 - **Notas** — dónde está el listón de la carne roja, el pescado de la semana,
   el embutido de los almuerzos y los rangos calóricos.
 
-## Por qué empieza un miércoles
+## Por qué empieza un lunes
 
-Porque la semana la marca la compra, no el calendario. Se compra el miércoles
+Porque la semana la marca la compra, no el calendario. Se compra el lunes
 por la tarde, se prepara en el mismo rato y la primera toma es esa noche: así
 la carne fresca y el sofrito se gastan cuando están en su punto, lo demás pasa
 por el congelador y la nevera queda vacía justo al llegar a la siguiente
