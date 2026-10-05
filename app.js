@@ -7,6 +7,7 @@
   const hoyISO = () => { const d = new Date(); return new Date(d - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10); };
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const slug = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const COLOR_FAM = { carne: '#A63D22', pescado: '#1D4E89', legumbre: '#B08A2E', huevo: '#C9A227', otro: '#5F6E38' };
   const NOMBRE_DIA = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
 
   let estado = cargar();
@@ -174,10 +175,11 @@
     });
     comidas.forEach((n) => unir(n, 0)); sugs.forEach((n) => unir(n, 1));
     const nodos = [];
-    const caja = (id, clase, txt, sub, estilo) => {
+    const caja = (id, clase, txt, sub, estilo, familia) => {
       const q = pos[id], g = el('g', { class: 'nodo ' + clase, transform: `translate(${q.x},${q.y})` });
       const rc = el('rect', { width: q.w, height: 24, rx: 0 }, g); if (estilo) Object.keys(estilo).forEach((k) => rc.style[k] = estilo[k]);
       const t = el('text', { x: 8, y: 16 }, g); t.textContent = txt.length > 24 ? txt.slice(0, 23) + '…' : txt;
+      if (familia) el('rect', { width: 4, height: 24, fill: COLOR_FAM[familia] }, g);
       const tt = el('title', {}, g); tt.textContent = txt + (sub ? ' · ' + sub : '');
       nodos.push({ id, g }); return g;
     };
@@ -186,7 +188,8 @@
     alims.forEach((i) => {
       const c = Math.min(1, r.calor[i] || 0), pct = Math.round(c * 80);
       caja('a:' + i, 'n-alim', r.grafo.alimentos[i].nombre, r.grafo.alimentos[i].grupo,
-        { fill: `color-mix(in srgb, var(--pimenton) ${pct}%, var(--anil-tinte))`, stroke: 'var(--linea)' });
+        { fill: `color-mix(in srgb, var(--pimenton) ${pct}%, var(--anil-tinte))`, stroke: 'var(--linea)' },
+        M.FAMILIA[r.grafo.alimentos[i].grupo] || 'otro');
     });
     nodos.forEach(({ id, g }) => {
       g.addEventListener('mouseenter', () => {
@@ -200,7 +203,11 @@
   }
 
   function pintar() {
-    const r = M.planificar(estado, { hoy: hoyISO() });
+    let r = M.planificar(estado, { hoy: hoyISO() });
+    const vivos = Object.keys(estado.pins).filter((k) => +k >= r.inicio);
+    if (vivos.length !== Object.keys(estado.pins).length) { // fijaciones de tomas que ya pasaron
+      estado.pins = Object.fromEntries(vivos.map((k) => [k, estado.pins[k]])); guardar(); r = M.planificar(estado, { hoy: hoyISO() });
+    }
     pintarFormulario(); pintarHistorial(r); pintarGrafo(r); pintarPlan(r); pintarBalance(r); pintarCompra(r);
     $('c-libre').checked = estado.modo === 'libre';
     $('bloque-otro').hidden = $('f-receta').value !== '__otro';

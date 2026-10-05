@@ -118,32 +118,84 @@
     if (fam === 'legumbre' && n('legumbre') < OBJETIVO.legumbreMin) { score += 0.8 + 0.6 * (OBJETIVO.legumbreMin - n('legumbre')); razones.push({ s: '+', t: `faltan legumbres (${n('legumbre')} de ${OBJETIVO.legumbreMin})` }); }
     // 5. casilla de la plantilla
     if (r.slot === casilla.id) { if (libre) { score += 2; razones.push({ s: '+', t: 'encaja en la casilla ' + casilla.tipo.toLowerCase() }); } if (r.sug) score += 0.3; }
+    // 6. un plato sin proteína no sustituye a la toma
+    if (fam === 'verdura') { score -= 3; razones.push({ s: '-', t: 'sin proteína: no completa la toma' }); }
+    // 7. rotación: se prefiere lo que hace más que no se come, y lo que nunca se ha comido
+    const ult = previas.filter((t) => t.receta === r.id).map((t) => t.idx).pop();
+    score += ult === undefined ? 0.4 : Math.min(idx - ult, 224) / 224 * 0.5;
     score += hash(r.id + ':' + idx) * 0.05;
-    return { score, razones, fam };
+    return { score, razones, fam, floja: fam === 'verdura' };
   }
 
   // ---- Planificador ----
+  // Búsqueda en haz: se conservan los HAZ mejores planes parciales en cada toma, de modo
+  // que una elección de hoy tenga en cuenta lo que dejaría sin sitio dentro de unos días.
+  const HAZ = 24, TOP_POR_NODO = 6;
+
+  function penalizacionFinal(previas, inicio) {
+    const ven = previas.filter((t) => t.idx >= inicio);
+    const n = (f) => ven.filter((t) => t.fam === f).length;
+    return -3 * Math.max(0, n('carne') - OBJETIVO.carneMax)
+      - 2 * Math.max(0, OBJETIVO.pescadoMin - n('pescado'))
+      - 2 * Math.max(0, OBJETIVO.legumbreMin - n('legumbre'));
+  }
+
   function planificar(estado, opc = {}) {
     const grafo = construirGrafo(estado);
     const libre = estado.modo === 'libre';
     const hist = (estado.historial || []).slice().sort((a, b) => idxToma(a.fecha, a.momento) - idxToma(b.fecha, b.momento));
-    const previas = hist.map((h) => { const ing = ingsDe(h, grafo); return { idx: idxToma(h.fecha, h.momento), receta: h.receta || null, ing, fam: familiaDe(ing, grafo.alimentos) }; });
+    const base = hist.map((h) => { const ing = ingsDe(h, grafo); return { idx: idxToma(h.fecha, h.momento), receta: h.receta || null, ing, fam: familiaDe(ing, grafo.alimentos) }; });
     const hoy = opc.hoy || new Date().toISOString().slice(0, 10);
-    const ultimo = previas.length ? previas[previas.length - 1].idx : null;
-    const inicio = ultimo !== null ? ultimo + 1 : idxToma(hoy, new Date().getHours() < 16 ? 'comida' : 'cena');
+    const ahora = idxToma(hoy, opc.momentoHoy || (new Date().getHours() < 16 ? 'comida' : 'cena'));
+    const ultimo = base.length ? base[base.length - 1].idx : -Infinity;
+    // Nunca se planifica en el pasado: si el registro va atrasado, el plan empieza en la toma actual.
+    const inicio = Math.max(ultimo + 1, ahora);
     const casillas = window.DATOS.casillas;
-    const plan = [];
+    const pins = estado.pins || {};
+
+    const casillaDe = (idx) => { const { fecha, momento } = deIdx(idx); return casillas.find((c) => c.dia === diaSemana(fecha) && c.momento === momento); };
+    const candidatas = (casilla) => grafo.recetas.filter((r) => libre || r.slot === casilla.id);
+    const evaluar = (idx, previas) => {
+      const casilla = casillaDe(idx);
+      const r = candidatas(casilla).map((rec) => Object.assign({ receta: rec }, puntuar(rec, idx, previas, grafo, casilla, libre)));
+      return r.sort((a, b) => b.score - a.score);
+    };
+    const apilar = (previas, idx, x) => previas.concat({ idx, receta: x.receta.id, ing: x.receta.ing, fam: x.fam });
+
+    let haz = [{ total: 0, previas: base, camino: [] }];
     for (let k = 0; k < VENTANA; k++) {
-      const idx = inicio + k, { fecha, momento } = deIdx(idx);
-      const casilla = casillas.find((c) => c.dia === diaSemana(fecha) && c.momento === momento);
-      const cands = grafo.recetas.filter((r) => libre || r.slot === casilla.id);
-      const ranking = cands.map((r) => Object.assign({ receta: r }, puntuar(r, idx, previas, grafo, casilla, libre)))
-        .sort((a, b) => b.score - a.score);
-      const pin = (estado.pins || {})[idx];
-      const elegido = ranking.find((x) => x.receta.id === pin) || ranking[0];
-      plan.push({ idx, fecha, momento, casilla, elegido, fijada: elegido.receta.id === pin, alternativas: ranking.filter((x) => x !== elegido && !x.excluida).slice(0, 3) });
-      previas.push({ idx, receta: elegido.receta.id, ing: elegido.receta.ing, fam: elegido.fam });
+      const idx = inicio + k, sig = [];
+      for (const nodo of haz) {
+        let rank = evaluar(idx, nodo.previas);
+        const fija = pins[idx] && rank.find((x) => x.receta.id === pins[idx] && !x.excluida);
+        if (fija) rank = [fija];
+        else {
+          // Los platos sin proteína solo se usan si no queda otra opción en la casilla.
+          const buenas = rank.filter((x) => !x.excluida && !x.floja), libres = rank.filter((x) => !x.excluida);
+          rank = (buenas.length ? buenas : libres.length ? libres : rank).slice(0, TOP_POR_NODO);
+        }
+        for (const x of rank) sig.push({ total: nodo.total + x.score, previas: apilar(nodo.previas, idx, x), camino: nodo.camino.concat(x.receta.id) });
+      }
+      // Planes que acaban igual en las últimas tomas son equivalentes: se deja el mejor de cada uno.
+      const vistos = new Map();
+      for (const n of sig.sort((a, b) => b.total - a.total)) {
+        const clave = n.camino.slice(-3).join('|') + '#' + n.previas.filter((t) => t.idx >= inicio).map((t) => t.fam).join('');
+        if (!vistos.has(clave)) vistos.set(clave, n);
+      }
+      haz = [...vistos.values()].slice(0, HAZ);
     }
+    haz.forEach((n) => { n.total += penalizacionFinal(n.previas, inicio); });
+    const mejor = haz.sort((a, b) => b.total - a.total)[0];
+
+    // Se reconstruye el plan elegido con el ranking de cada toma (para razones y alternativas).
+    const plan = []; let previas = base;
+    mejor.camino.forEach((rid, k) => {
+      const idx = inicio + k, { fecha, momento } = deIdx(idx);
+      const ranking = evaluar(idx, previas);
+      const elegido = ranking.find((x) => x.receta.id === rid);
+      plan.push({ idx, fecha, momento, casilla: casillaDe(idx), elegido, fijada: pins[idx] === rid, alternativas: ranking.filter((x) => x !== elegido && !x.excluida).slice(0, 3) });
+      previas = apilar(previas, idx, elegido);
+    });
     return { plan, grafo, inicio, calor: calor(hist, inicio, grafo), historial: hist };
   }
 

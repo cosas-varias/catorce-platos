@@ -38,8 +38,19 @@ Puntuación de cada receta candidata en cada toma:
 - **Familia contigua:** carne, pescado o legumbre dos tomas seguidas penaliza.
 - **Reparto de 14 tomas:** máximo 6 con carne, mínimo 4 de pescado y 2 de
   legumbre; se empuja hacia ello.
+- **Proteína:** un plato sin carne, pescado, legumbre ni huevo (el ajoblanco)
+  solo se propone si no queda otra opción en la casilla.
+- **Rotación:** a igualdad, gana lo que hace más que no se come y lo que nunca
+  se ha comido.
 - **Casilla:** en modo plantilla solo compiten las 4 recetas de la casilla; en
   modo libre compite cualquier receta, con prioridad para las de la casilla.
+
+El plan no se calcula toma a toma sino con una búsqueda en haz: mantiene los 24
+mejores planes parciales y al final se queda con el de mejor puntuación total,
+descontando lo que se aleje del reparto objetivo. Así una elección de hoy tiene
+en cuenta lo que dejaría sin sitio dentro de unos días (no acabar la semana con
+tres carnes seguidas). El plan nunca empieza en el pasado: si el registro va
+atrasado, arranca en la toma actual.
 
 El registro se guarda en el navegador (`localStorage`) y se puede exportar e
 importar como JSON.
@@ -48,6 +59,7 @@ importar como JSON.
 
 - `index.html`, `app.js`, `app.css` — la interfaz del planificador.
 - `motor.js` — grafo y planificador, sin dependencias del DOM.
+- `pruebas.js` — pruebas del motor (`node pruebas.js`).
 - `datos.js` — casillas, 56 recetas (14 × 4) y alimentos. Para ampliar el
   menú, se añade aquí: un alimento a `alimentos`, una receta a `recetas`.
 - `plantilla.html` + `estilos.css` — la landing original, intacta, como plantilla.
