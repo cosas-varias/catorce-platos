@@ -1,0 +1,561 @@
+  :root {
+    --cal: #FCFBF7;
+    --papel: #FFFFFF;
+    --tinta: #141C26;
+    --texto: #2A333F;
+    --suave: #5D6874;
+    --linea: #D9D8D0;
+    --linea-fina: #E9E7E0;
+    --anil: #1D4E89;
+    --anil-tinte: #EDF1F7;
+    --oliva: #5F6E38;
+    --oliva-tinte: #F0F2E7;
+    --pimenton: #A63D22;
+
+    --display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    --cuerpo: "Karla", "Helvetica Neue", Arial, sans-serif;
+    --dato: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --cal: #111822;
+      --papel: #161E29;
+      --tinta: #F1F4F1;
+      --texto: #D6DBE1;
+      --suave: #97A2AE;
+      --linea: #2B3644;
+      --linea-fina: #222C38;
+      --anil: #83B3E2;
+      --anil-tinte: #182534;
+      --oliva: #ABBE76;
+      --oliva-tinte: #1B2420;
+      --pimenton: #E28466;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --cal: #111822;
+    --papel: #161E29;
+    --tinta: #F1F4F1;
+    --texto: #D6DBE1;
+    --suave: #97A2AE;
+    --linea: #2B3644;
+    --linea-fina: #222C38;
+    --anil: #83B3E2;
+    --anil-tinte: #182534;
+    --oliva: #ABBE76;
+    --oliva-tinte: #1B2420;
+    --pimenton: #E28466;
+  }
+
+  body {
+    background: var(--cal);
+    color: var(--texto);
+    font-family: var(--cuerpo);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .hoja {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 56px 24px 88px;
+  }
+
+  a { color: var(--anil); }
+  :focus-visible { outline: 2px solid var(--anil); outline-offset: 3px; }
+
+  /* ---------- cabecera ---------- */
+
+  .cabecera {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .eyebrow {
+    font-family: var(--dato);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--anil);
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(46px, 8vw, 78px);
+    line-height: 0.95;
+    letter-spacing: -0.015em;
+    color: var(--tinta);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  h1 em { font-style: italic; color: var(--anil); }
+
+  .entradilla {
+    max-width: 60ch;
+    font-size: 17px;
+    color: var(--texto);
+    margin: 0;
+  }
+
+  .supuestos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .supuestos li {
+    font-family: var(--dato);
+    font-size: 11.5px;
+    letter-spacing: 0.02em;
+    color: var(--suave);
+    border: 1px solid var(--linea);
+    border-radius: 2px;
+    padding: 4px 9px;
+    background: var(--papel);
+  }
+
+  /* ---------- rótulos de sección ---------- */
+
+  .rotulo {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 64px 0 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--tinta);
+  }
+
+  .rotulo h2 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(28px, 4vw, 38px);
+    line-height: 1.05;
+    color: var(--tinta);
+    margin: 0;
+  }
+
+  .rotulo p {
+    font-family: var(--dato);
+    font-size: 11.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--suave);
+    margin: 0;
+    text-align: right;
+  }
+
+  /* ---------- parrilla de días ---------- */
+
+  .semana { display: flex; flex-direction: column; }
+
+  .dia {
+    display: grid;
+    grid-template-columns: 88px 1fr 1fr;
+    border-bottom: 1px solid var(--linea-fina);
+  }
+
+  .dia:last-child { border-bottom: 1px solid var(--linea); }
+
+  .fecha {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 22px 18px 22px 0;
+  }
+
+  .azulejo {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--anil);
+    box-shadow: inset 0 0 0 3px var(--cal), inset 0 0 0 4px var(--anil-tinte);
+    background: var(--anil-tinte);
+    font-family: var(--display);
+    font-size: 24px;
+    line-height: 1;
+    color: var(--anil);
+  }
+
+  .fecha span {
+    font-family: var(--dato);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--suave);
+  }
+
+  .toma {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 22px 20px;
+    border-left: 1px solid var(--linea-fina);
+  }
+
+  .toma--cena { background: var(--oliva-tinte); }
+
+  .toma-cab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--dato);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .toma--comida .toma-cab { color: var(--anil); }
+  .toma--cena .toma-cab { color: var(--oliva); }
+
+  .toma-cab .marca {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+    flex: 0 0 auto;
+  }
+
+  .toma-cab .reloj {
+    margin-left: auto;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+    color: var(--suave);
+  }
+
+  .toma h3 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.12;
+    color: var(--tinta);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .toma p {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--texto);
+    margin: 0;
+    max-width: 46ch;
+  }
+
+  .toma .con {
+    font-size: 13.5px;
+    color: var(--suave);
+  }
+
+  .toma .con b {
+    font-weight: 500;
+    color: var(--texto);
+  }
+
+  .toma .sug {
+    display: flex;
+    align-items: baseline;
+    gap: 9px;
+    margin: 0;
+  }
+
+  .toma .sug em {
+    flex: 0 0 auto;
+    font-family: var(--dato);
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--pimenton);
+  }
+
+  .toma .sug b {
+    font-weight: 500;
+    font-size: 14.5px;
+    color: var(--texto);
+  }
+
+  .toma--linde {
+    justify-content: center;
+    gap: 5px;
+    background: none;
+  }
+
+  .toma--linde p {
+    font-family: var(--dato);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--suave);
+    max-width: 30ch;
+  }
+
+  .toma--linde p.eco {
+    text-transform: none;
+    letter-spacing: 0;
+    font-family: var(--cuerpo);
+    font-size: 13.5px;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    list-style: none;
+    margin: 3px 0 0;
+    padding: 0;
+  }
+
+  .chips li {
+    font-family: var(--dato);
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--suave);
+    border: 1px solid var(--linea);
+    border-radius: 999px;
+    padding: 2px 8px;
+  }
+
+  .chips li.destaca {
+    color: var(--pimenton);
+    border-color: var(--pimenton);
+  }
+
+  /* ---------- lunes de preparación ---------- */
+
+  .tareas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1px;
+    margin-top: 24px;
+    background: var(--linea-fina);
+    border: 1px solid var(--linea-fina);
+  }
+
+  .tarea {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 20px 18px;
+    background: var(--papel);
+  }
+
+  .tarea .reloj {
+    font-family: var(--dato);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--pimenton);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .tarea h3 {
+    font-family: var(--cuerpo);
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.25;
+    color: var(--tinta);
+    margin: 0;
+  }
+
+  .tarea p {
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--texto);
+    margin: 0;
+  }
+
+  /* ---------- la compra ---------- */
+
+  .compra {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(228px, 1fr));
+    gap: 34px 40px;
+    margin-top: 30px;
+  }
+
+  .puesto h3 {
+    font-family: var(--dato);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--anil);
+    margin: 0 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .puesto ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .puesto li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--texto);
+    border-bottom: 1px dotted var(--linea-fina);
+    padding-bottom: 6px;
+  }
+
+  .puesto .cant {
+    font-family: var(--dato);
+    font-size: 12px;
+    color: var(--suave);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  /* ---------- notas ---------- */
+
+  .notas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px 44px;
+    margin-top: 30px;
+  }
+
+  .nota h3 {
+    font-family: var(--cuerpo);
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--tinta);
+    margin: 0 0 6px;
+  }
+
+  .nota p {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--texto);
+    margin: 0;
+    max-width: 58ch;
+  }
+
+  .balance {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1px;
+    margin-top: 26px;
+    background: var(--linea-fina);
+    border: 1px solid var(--linea-fina);
+  }
+
+  .balance div {
+    flex: 1 1 132px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 16px 18px;
+    background: var(--papel);
+  }
+
+  .balance dt, .balance .clave {
+    font-family: var(--dato);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--suave);
+  }
+
+  .balance .valor {
+    font-family: var(--display);
+    font-size: 30px;
+    line-height: 1;
+    color: var(--anil);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .pie {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--linea);
+    font-size: 13.5px;
+    color: var(--suave);
+    max-width: 62ch;
+  }
+
+  @media (max-width: 780px) {
+    .hoja { padding: 40px 18px 64px; }
+
+    .dia {
+      grid-template-columns: 1fr;
+      padding-bottom: 8px;
+    }
+
+    .fecha {
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 0 12px;
+    }
+
+    .azulejo { width: 36px; height: 36px; font-size: 20px; }
+
+    .toma {
+      border-left: 0;
+      border-top: 1px solid var(--linea-fina);
+      padding: 18px 0;
+    }
+
+    .toma--cena {
+      background: none;
+      padding: 18px 14px;
+      margin-bottom: 4px;
+      border-left: 2px solid var(--oliva);
+    }
+  }
+
+  /* ---------- rotación de semanas ---------- */
+
+  .toma .rot {
+    font-family: var(--dato);
+    font-size: 11px;
+    line-height: 1.55;
+    color: var(--suave);
+    border-top: 1px dotted var(--linea);
+    padding-top: 8px;
+    margin-top: 3px;
+    max-width: 46ch;
+  }
+
+  .toma .rot em {
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 10px;
+    color: var(--oliva);
+  }
+
+  .fijo .tarea .reloj { color: var(--anil); letter-spacing: 0.12em; text-transform: uppercase; }
+
+  .puesto .apunte {
+    font-size: 12.5px;
+    line-height: 1.45;
+    color: var(--suave);
+    margin: 14px 0 0;
+  }

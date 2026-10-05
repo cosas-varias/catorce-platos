@@ -1,0 +1,63 @@
+/* Estilos propios del planificador; la base visual está en estilos.css */
+.plantilla-aviso { font-family: var(--dato); font-size: 12px; color: var(--suave); border-bottom: 1px solid var(--linea); padding: 10px 0; margin-bottom: 8px; }
+.enlace-plantilla { font-family: var(--dato); font-size: 12px; margin-top: 14px; display: inline-block; }
+
+.panel { background: var(--papel); border: 1px solid var(--linea); padding: 20px 22px; margin: 0 0 18px; }
+.panel h3 { font-family: var(--display); font-weight: 400; font-size: 24px; margin: 0 0 10px; color: var(--tinta); }
+.panel p.ayuda { font-size: 13.5px; color: var(--suave); margin: 0 0 14px; max-width: 62ch; }
+
+.form { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; align-items: end; }
+.form label { display: flex; flex-direction: column; gap: 4px; font-family: var(--dato); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--suave); }
+.form input, .form select, .app-btn { font: inherit; font-size: 14.5px; font-family: var(--cuerpo); color: var(--tinta); background: var(--cal); border: 1px solid var(--linea); padding: 8px 10px; border-radius: 0; text-transform: none; letter-spacing: 0; }
+.app-btn { cursor: pointer; background: var(--anil); color: var(--cal); border-color: var(--anil); font-weight: 500; }
+.app-btn.sec { background: transparent; color: var(--anil); }
+.app-btn.mini { padding: 3px 8px; font-size: 12px; }
+.app-btn:disabled { opacity: .45; cursor: default; }
+.span2 { grid-column: span 2; } .fila { grid-column: 1 / -1; }
+@media (max-width: 520px) { .span2 { grid-column: auto; } }
+
+.etiquetas { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 0; padding: 0; list-style: none; }
+.etiquetas li { font-family: var(--dato); font-size: 12px; padding: 3px 8px; border: 1px solid var(--linea); background: var(--cal); }
+.etiquetas button { background: none; border: 0; color: var(--pimenton); cursor: pointer; padding: 0 0 0 6px; font-size: 14px; }
+
+.historial { list-style: none; margin: 14px 0 0; padding: 0; max-height: 280px; overflow: auto; border-top: 1px solid var(--linea-fina); }
+.historial li { display: flex; gap: 12px; align-items: baseline; padding: 7px 0; border-bottom: 1px solid var(--linea-fina); font-size: 14px; }
+.historial .cuando { font-family: var(--dato); font-size: 12px; color: var(--suave); min-width: 118px; }
+.historial .nombre { flex: 1; color: var(--tinta); }
+.historial .ings { font-size: 12px; color: var(--suave); }
+.vacio { color: var(--suave); font-size: 14px; font-style: italic; }
+.herramientas { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; align-items: center; }
+.herramientas label.modo { font-size: 13px; color: var(--texto); display: flex; gap: 6px; align-items: center; }
+
+.grafo-caja { background: var(--papel); border: 1px solid var(--linea); padding: 8px; overflow-x: auto; }
+.grafo-caja svg { display: block; width: 100%; min-width: 640px; height: auto; font-family: var(--cuerpo); }
+.grafo-caja text { fill: var(--texto); font-size: 12px; }
+.grafo-caja .col { fill: var(--suave); font-family: var(--dato); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; }
+.grafo-caja .arista { stroke: var(--linea); fill: none; stroke-width: 1; }
+.grafo-caja .arista.on { stroke: var(--anil); stroke-width: 1.8; }
+.grafo-caja .atenuado { opacity: .15; }
+.grafo-caja .nodo { cursor: default; }
+.grafo-caja .n-comida rect { fill: var(--anil-tinte); stroke: var(--anil); }
+.grafo-caja .n-sug rect { fill: var(--oliva-tinte); stroke: var(--oliva); }
+.leyenda { font-size: 12.5px; color: var(--suave); display: flex; gap: 16px; flex-wrap: wrap; margin: 10px 2px 0; align-items: center; }
+.leyenda i { display: inline-block; width: 12px; height: 12px; margin-right: 5px; vertical-align: -1px; border: 1px solid var(--linea); }
+
+.toma .porque { list-style: none; margin: 8px 0 0; padding: 0; font-size: 12.5px; color: var(--suave); }
+.toma .porque li::before { content: attr(data-s) " "; font-family: var(--dato); font-weight: 500; }
+.toma .porque li[data-s="-"]::before { color: var(--pimenton); } .toma .porque li[data-s="+"]::before { color: var(--oliva); }
+.toma .alts { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.toma .alts button { font: inherit; font-size: 12.5px; padding: 3px 9px; border: 1px dashed var(--linea); background: transparent; color: var(--texto); cursor: pointer; }
+.toma .alts button:hover, .toma .alts button.fijada { border-color: var(--anil); color: var(--anil); }
+.toma .acciones { margin-top: 12px; display: flex; gap: 8px; }
+.toma .pin { font-family: var(--dato); font-size: 11px; color: var(--anil); }
+
+.tabla-balance { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0; margin: 0; }
+.tabla-balance div { padding: 12px 14px; border: 1px solid var(--linea); margin: -1px 0 0 -1px; }
+.tabla-balance .ok .valor { color: var(--oliva); } .tabla-balance .mal .valor { color: var(--pimenton); }
+.tabla-balance .valor { font-family: var(--display); font-size: 34px; margin: 0; color: var(--tinta); } .tabla-balance .clave { margin: 0; font-size: 12.5px; color: var(--suave); }
+
+.lista-compra { columns: 220px; column-gap: 28px; }
+.lista-compra .puesto { break-inside: avoid; margin-bottom: 14px; }
+.lista-compra h4 { font-family: var(--dato); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--anil); margin: 0 0 4px; }
+.lista-compra ul { list-style: none; margin: 0; padding: 0; font-size: 14px; }
+.lista-compra li span { font-family: var(--dato); font-size: 12px; color: var(--suave); margin-left: 6px; }
