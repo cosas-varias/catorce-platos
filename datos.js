@@ -47,7 +47,7 @@ window.DATOS = {
    "dia": 4,
    "diaNombre": "Jueves",
    "momento": "comida",
-   "tipo": "Arroz de marisco",
+   "tipo": "Carne picada en salsa",
    "tiempo": "35 min"
   },
   {
@@ -111,7 +111,7 @@ window.DATOS = {
    "dia": 1,
    "diaNombre": "Lunes",
    "momento": "comida",
-   "tipo": "Carne picada en salsa",
+   "tipo": "Arroz de marisco",
    "tiempo": "35 min"
   }
  ],
@@ -351,48 +351,50 @@ window.DATOS = {
    "sug": false
   },
   {
-   "id": "s06-0",
+   "id": "s14-0",
    "slot": "s06",
-   "nombre": "Arroz con gambas y pimiento",
+   "nombre": "Albóndigas con guisantes",
    "ing": [
-    "gambas",
-    "arroz",
-    "pimiento"
+    "picada",
+    "guisantes",
+    "huevo",
+    "cebolla",
+    "pan"
    ],
    "sug": true,
-   "metodo": "Sofríe las gambas un minuto y resérvalas, que solo cojan color. En el mismo aceite, calienta el sofrito y nacara el arroz redondo un minuto. Caldo caliente al doble de volumen y dieciocho minutos sin tocarlo: diez fuertes, ocho flojos. Las gambas vuelven al arroz en el último minuto, con el fuego ya apagado.",
+   "metodo": "Una bolsa de picada, con un huevo, ajo y pan mojado en leche; bolas del tamaño de una nuez, enharinadas y selladas en la sartén. Fuera, y en ese aceite el resto del tomate y un poco de caldo. Vuelven a la salsa con los guisantes, quince minutos a fuego suave.",
    "tiempo": "35 min"
   },
   {
-   "id": "s06-1",
+   "id": "s14-1",
    "slot": "s06",
-   "nombre": "Arroz a banda con calamar",
+   "nombre": "Albóndigas en salsa de almendra",
    "ing": [
-    "calamar",
-    "arroz",
+    "picada",
+    "almendra",
+    "cebolla"
+   ],
+   "sug": false
+  },
+  {
+   "id": "s14-2",
+   "slot": "s06",
+   "nombre": "Pimientos rellenos de carne",
+   "ing": [
+    "picada",
+    "pimiento",
     "tomate"
    ],
    "sug": false
   },
   {
-   "id": "s06-2",
+   "id": "s14-3",
    "slot": "s06",
-   "nombre": "Fideuá con gambas",
+   "nombre": "Rollo de carne al horno",
    "ing": [
-    "gambas",
-    "fideo",
-    "tomate"
-   ],
-   "sug": false
-  },
-  {
-   "id": "s06-3",
-   "slot": "s06",
-   "nombre": "Arroz con mejillones y pimiento",
-   "ing": [
-    "mejillon",
-    "arroz",
-    "pimiento"
+    "picada",
+    "huevo",
+    "zanahoria"
    ],
    "sug": false
   },
@@ -728,50 +730,48 @@ window.DATOS = {
    "sug": false
   },
   {
-   "id": "s14-0",
+   "id": "s06-0",
    "slot": "s14",
-   "nombre": "Albóndigas con guisantes",
+   "nombre": "Arroz con gambas y pimiento",
    "ing": [
-    "picada",
-    "guisantes",
-    "huevo",
-    "cebolla",
-    "pan"
+    "gambas",
+    "arroz",
+    "pimiento"
    ],
    "sug": true,
-   "metodo": "La picada que queda, con un huevo, ajo y pan mojado en leche; bolas del tamaño de una nuez, enharinadas y selladas en la sartén. Fuera, y en ese aceite el resto del tomate y un poco de caldo. Vuelven a la salsa con los guisantes, quince minutos a fuego suave.",
+   "metodo": "Sofríe las gambas un minuto y resérvalas, que solo cojan color. En el mismo aceite, calienta el sofrito y nacara el arroz redondo un minuto. Caldo caliente al doble de volumen y dieciocho minutos sin tocarlo: diez fuertes, ocho flojos. Las gambas vuelven al arroz en el último minuto, con el fuego ya apagado.",
    "tiempo": "35 min"
   },
   {
-   "id": "s14-1",
+   "id": "s06-1",
    "slot": "s14",
-   "nombre": "Albóndigas en salsa de almendra",
+   "nombre": "Arroz a banda con calamar",
    "ing": [
-    "picada",
-    "almendra",
-    "cebolla"
-   ],
-   "sug": false
-  },
-  {
-   "id": "s14-2",
-   "slot": "s14",
-   "nombre": "Pimientos rellenos de carne",
-   "ing": [
-    "picada",
-    "pimiento",
+    "calamar",
+    "arroz",
     "tomate"
    ],
    "sug": false
   },
   {
-   "id": "s14-3",
+   "id": "s06-2",
    "slot": "s14",
-   "nombre": "Rollo de carne al horno",
+   "nombre": "Fideuá con gambas",
    "ing": [
-    "picada",
-    "huevo",
-    "zanahoria"
+    "gambas",
+    "fideo",
+    "tomate"
+   ],
+   "sug": false
+  },
+  {
+   "id": "s06-3",
+   "slot": "s14",
+   "nombre": "Arroz con mejillones y pimiento",
+   "ing": [
+    "mejillon",
+    "arroz",
+    "pimiento"
    ],
    "sug": false
   }
