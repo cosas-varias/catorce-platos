@@ -29,7 +29,31 @@
     <a class="enlace-plantilla" href="plantilla.html">Ver la plantilla original de la semana →</a>
   </header>
 
-  <div class="rotulo"><h2>Lo que habéis comido</h2><p>Registro</p></div>
+  <nav class="indice" aria-label="Secciones">
+    <a href="#ahora">Ahora</a><a href="#s-plan">Plan</a><a href="#s-reparto">Reparto</a><a href="#s-compra">Compra</a><a href="#s-registro">Registro</a><a href="#s-grafo">Grafo</a>
+  </nav>
+
+  <section class="ahora" id="ahora" aria-live="polite"></section>
+
+  <div class="rotulo" id="s-plan"><h2>Las próximas catorce tomas</h2><p>Deducidas del grafo y del registro</p></div>
+  <div class="herramientas barra-plan">
+    <label class="modo"><input type="checkbox" id="c-libre"> Modo libre: cualquier receta puede ocupar cualquier casilla (la de la plantilla tiene prioridad)</label>
+    <button class="app-btn sec mini" id="b-soltar" type="button" hidden>Quitar platos fijados</button>
+  </div>
+  <section class="semana" id="plan"></section>
+
+  <div class="rotulo" id="s-reparto"><h2>El reparto</h2><p>Esas catorce tomas</p></div>
+  <ol class="tira" id="tira" aria-label="Familia de cada toma"></ol>
+  <dl class="tabla-balance" id="balance"></dl>
+
+  <div class="rotulo" id="s-compra"><h2>La compra</h2><p id="compra-cuenta">Alimentos que piden esas tomas</p></div>
+  <div class="panel lista-compra" id="compra"></div>
+  <div class="herramientas">
+    <button class="app-btn sec mini" id="b-copiar" type="button">Copiar lo que falta</button>
+    <button class="app-btn sec mini" id="b-desmarcar" type="button">Desmarcar todo</button>
+  </div>
+
+  <div class="rotulo" id="s-registro"><h2>Lo que habéis comido</h2><p>Registro</p></div>
   <div class="panel">
     <p class="ayuda">Elegid un plato del menú o apuntad otra cosa con sus alimentos. Los alimentos nuevos se añaden al grafo y cuentan para las próximas sugerencias.</p>
     <form class="form" id="form-registro">
@@ -52,34 +76,22 @@
       <button class="app-btn sec mini" id="b-exportar" type="button">Exportar JSON</button>
       <button class="app-btn sec mini" id="b-importar" type="button">Importar JSON</button>
       <input type="file" id="f-archivo" accept="application/json" hidden>
-      <button class="app-btn sec mini" id="b-vaciar" type="button">Vaciar registro</button>
+      <button class="app-btn sec mini peligro" id="b-vaciar" type="button">Vaciar registro</button>
     </div>
   </div>
 
-  <div class="rotulo"><h2>El grafo</h2><p>Comido · Alimentos · Sugerido</p></div>
+  <div class="rotulo" id="s-grafo"><h2>El grafo</h2><p>Comido · Alimentos · Sugerido</p></div>
   <div class="grafo-caja"><svg id="grafo" role="img" aria-label="Grafo de platos comidos, alimentos y próximos platos sugeridos"></svg></div>
   <p class="leyenda">
-    <span><i style="background:var(--pimenton)"></i>alimento comido hace poco</span>
-    <span><i style="background:var(--anil-tinte)"></i>alimento frío (apetece)</span>
-    <span><i style="background:#A63D22"></i>carne <i style="background:#1D4E89"></i>pescado <i style="background:#B08A2E"></i>legumbre <i style="background:#C9A227"></i>huevo <i style="background:#5F6E38"></i>verdura y cereal</span>
-    <span>Pasad el ratón por un nodo para ver sus conexiones.</span>
+    <span><i class="calor-alto"></i>alimento comido hace poco</span>
+    <span><i class="calor-bajo"></i>alimento frío (apetece)</span>
+    <span><i class="f-carne"></i>carne <i class="f-pescado"></i>pescado <i class="f-legumbre"></i>legumbre <i class="f-huevo"></i>huevo <i class="f-otro"></i>verdura y cereal</span>
+    <span>Pasad el ratón o tocad un nodo para ver sus conexiones.</span>
   </p>
-
-  <div class="rotulo"><h2>Las próximas catorce tomas</h2><p>Deducidas del grafo y del registro</p></div>
-  <div class="herramientas" style="margin:0 0 14px">
-    <label class="modo"><input type="checkbox" id="c-libre"> Modo libre: cualquier receta puede ocupar cualquier casilla (la de la plantilla tiene prioridad)</label>
-    <button class="app-btn sec mini" id="b-soltar" type="button">Quitar platos fijados</button>
-  </div>
-  <section class="semana" id="plan"></section>
-
-  <div class="rotulo"><h2>El reparto</h2><p>Esas catorce tomas</p></div>
-  <dl class="tabla-balance" id="balance"></dl>
-
-  <div class="rotulo"><h2>La compra</h2><p>Alimentos que piden esas tomas</p></div>
-  <div class="panel lista-compra" id="compra"></div>
 
   <p class="pie">Menú pensado para dos adultos sanos, sin alergias ni intolerancias. La plantilla original de la semana está en <a href="plantilla.html">plantilla.html</a>.</p>
 </div>
+<div class="aviso" id="aviso" role="status" hidden><span id="aviso-txt"></span><button type="button" id="aviso-deshacer">Deshacer</button></div>
 <script src="datos.js"></script>
 <script src="motor.js"></script>
 <script src="app.js"></script>
